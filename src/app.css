@@ -147,6 +147,20 @@ nav ul li a{
 
 }
 
+.theme nav ul li{
+  width: auto;
+}
+
+.theme nav ul li a{
+  display: inline-block;
+  padding: 10px;
+}
+
+.theme nav ul {
+  width: 100%;
+}
+
+
 
 
 

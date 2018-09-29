@@ -2,7 +2,7 @@
 	<require from="./app.css"></require>
 	<require from="materialize-css/dist/css/materialize.css"></require>
 	
-	<aside id="aside" class="left">
+	<aside id="aside">
 		<nav>
 			<ul>
 				<li><a route-href="route: home">Home</a></li>
@@ -10,16 +10,6 @@
 			</ul>
 		</nav>	
 	</aside>
-<!-- 	<aside class="center">
-		<nav>
-			<ul>
-				<li><a href="">Thema1</a></li>
-				<li><a href="">Thema2</a></li>
-				<li><a href="">Thema3</a></li>
-				<li><a href="">Thema4</a></li>
-			</ul>
-		</nav>
-	</aside> -->
 	<div class="router-views">
 		<header>
 			<div class="svg-button">
@@ -34,7 +24,16 @@
 				</a>
 	 		</div>
 		</header>
-		<aside></aside>
+		<div class="theme">
+			<nav>
+				<ul>
+					<li><a href="">Thema1</a></li>
+					<li><a href="">Thema2</a></li>
+					<li><a href="">Thema3</a></li>
+					<li><a href="">Thema4</a></li>
+				</ul>
+			</nav>
+		</div>
 		<router-view></router-view>
 	</div>
 </template>
