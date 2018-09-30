@@ -1,12 +1,12 @@
-<template>
+<template post.bind="post">
 	<require from="./card.css"></require>
-  	<h1>${value}</h1>
   	<article class="card">
-  		<a href=""><img src="http://lorempicsum.com/futurama/255/200/2" alt=""></a>
-		<span><strong>Admin</strong></span>
-		<span>Text text text</span>
-		<span>#Tag</span>
-		<span>Archive</span>
-		<span class="timer">time</span>
+  		<p>${post.body}</p>
+		<span><strong>${post.author}</strong></span>
+		<span>${post.title}</span>
+		<span>${ tag }</span>
+		<span>${post.archive}</span>
+		<span class="timer">${post.createdAt}</span>
+		<a route-href="route: post-view; params.bind: {slug: post.slug}">View post &raquo;</a>
 	</article>
 </template>

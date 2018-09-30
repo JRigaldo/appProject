@@ -1,0 +1,11 @@
+<template>
+	<div class="error-404" if.bind="error">${error}</div>
+	<article class="card" if.bind="post">
+		<p>${post.body}</p>
+		<span><strong>${post.author}</strong></span>
+		<span>${post.title}</span>
+		<span>${ tag }</span>
+		<span>${post.archive}</span>
+		<span class="timer">${post.createdAt}</span>
+	</article>
+</template>

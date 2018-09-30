@@ -1,0 +1,6 @@
+<template>
+	<require from="../resources/elements/card"></require>
+	<section class="row" repeat.for="post of posts">
+		<card post.bind="post"></card>
+	</section>
+</template>

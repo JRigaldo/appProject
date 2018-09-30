@@ -1,7 +1,7 @@
 <template>
 	<require from="./app.css"></require>
-	<require from="./resources/elements/card"></require>
-	  	<aside class="main-navigation ${isSelected ? 'click' : ''}">
+	<require from="./posts/index"></require>
+	  	<aside class="main-navigation ${isSelected ? 'click' : ''}" css.bind="isSelected">
 			<nav>
 				<ul>
 					<li><a route-href="route: home">Home</a></li>
@@ -12,17 +12,17 @@
 		<div class="router-views">
 			<header>
 				<div class="svg-button">
-		 			<a click.delegate="toggleMenu()">
-						<button>
-							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 26 26" version="1.1" width="26px" height="26px">
-								<g id="surface1">
-								<path style=" " d="M 0 4 L 0 6 L 26 6 L 26 4 Z M 0 12 L 0 14 L 26 14 L 26 12 Z M 0 20 L 0 22 L 26 22 L 26 20 Z "/>
-								</g>
-							</svg>
-						</button>
+					<a click.delegate="toggleMenu()">
+					<button>
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 26 26" version="1.1" width="26px" height="26px">
+							<g id="surface1">
+							<path style=" " d="M 0 4 L 0 6 L 26 6 L 26 4 Z M 0 12 L 0 14 L 26 14 L 26 12 Z M 0 20 L 0 22 L 26 22 L 26 20 Z "/>
+							</g>
+						</svg>
+					</button>
 					</a>
-		 		</div>
-		 		<a href="#" class="logo"><img src="./resources/img/logo.svg" alt="logo"></a>
+				</div>
+				<a href="#" class="logo"><img src="./resources/img/logo.svg" alt="logo"></a>
 			</header>
 			<div class="theme-navigation">
 				<nav>
@@ -34,13 +34,6 @@
 					</ul>
 				</nav>
 			</div>
-			<section class="row">
-				<card></card>
-				<card></card>
-				<card></card>
-				<card></card>
-				<card></card>
-				<card></card>
-			</section>
+			<router-view></router-view>
 		</div>
 </template>
