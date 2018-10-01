@@ -6,7 +6,9 @@
   		<p>${post.body}</p>
 		<span><strong>${post.author}</strong></span>
 		<span>${post.title}</span>
-		<span>${ tag }</span>
+		<ul>
+			<li repeat.for="tag of post.tags"><a route-href="route: tag-view; params.bind: {tag: tag}">${ tag }</a></li>
+		</ul>
 		<span>${post.archive}</span>
 		<span class="timer">${post.createdAt | dateFormat}</span>
 	</article>

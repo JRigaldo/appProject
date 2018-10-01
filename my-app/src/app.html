@@ -27,10 +27,12 @@
 			<div class="theme-navigation">
 				<nav>
 					<ul>
-						<li><a href="">Thema1</a></li>
-						<li><a href="">Thema2</a></li>
-						<li><a href="">Thema3</a></li>
-						<li><a href="">Thema4</a></li>
+						<li repeat.for="tag of tags"><a route-href="route: tag-view; params.bind: { tag }">${ tag }</a></li>
+					</ul>
+				</nav>
+				<nav>
+					<ul>
+						<li repeat.for="archive of archives"><a route-href="route: archive-view; params.bind: { archive }">${ archive }</a></li>
 					</ul>
 				</nav>
 			</div>
