@@ -9,12 +9,11 @@ export class View{
 	}
 
 	activate(params){
+		this.error = '';
 		this.PostService.find(params.slug).then(data => {
-			if(data.error){
-				this.error = data.error;
-			}else{
-				this.post = data.post;
-			}
+			this.post = data.post;
+		}).catch(error => {
+			this.error = error.message;
 		});
 	}
 

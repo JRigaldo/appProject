@@ -9,14 +9,13 @@ export class Index{
 	}
 
 	attached(){
+    this.error = '';
   	this.PostService.allPostPreviews().then(data => {
-  		if(data.errors){
-  			// Handel the errors 
-  		}else{
   			this.posts = data.posts;
   			console.log(this.posts);
-  		}
-  	});
+  	}).catch(error => {
+      this.error = error.message;
+    });
   }
 	
 }

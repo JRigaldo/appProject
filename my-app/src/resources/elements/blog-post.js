@@ -1,6 +1,6 @@
 import {bindable} from 'aurelia-framework';
 
-export class Card {
+export class BlogPost {
   @bindable post;
 
   valueChanged(newValue, oldValue) {
