@@ -1,4 +1,5 @@
 <template>
+	<require from="../value-converters/date-format"></require>
 	<require from="./card.css"></require>
   	<article class="card">
   		<img src="http://lorempicsum.com/nemo/255/200/2" alt="">
@@ -7,6 +8,6 @@
 		<span>${post.title}</span>
 		<span>${ tag }</span>
 		<span>${post.archive}</span>
-		<span class="timer">${post.createdAt}</span>
+		<span class="timer">${post.createdAt | dateFormat}</span>
 	</article>
 </template>
