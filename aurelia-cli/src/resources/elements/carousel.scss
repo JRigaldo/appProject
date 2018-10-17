@@ -1,0 +1,68 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  background-color: #FF5252;
+}
+
+.carousel-block{
+  position: relative;
+}
+
+.carousel{
+  position: relative;
+  overflow-x: scroll;
+  margin: 5%;
+}
+
+.carousel-container {
+  height: 100%;
+  transition: transform 0.3s;
+  transform: translate3d(0, 0, 0);
+}
+
+.carousel-container::after{
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.item-class{
+  float: left;
+  figure{
+    margin: 10px;
+    img{
+      width: 100%;
+      vertical-align: middle;
+    }
+    figcaption{
+      background-color: #FFF;
+      padding: 10px 20px;
+    }
+  }
+}
+
+.arrow-prev{
+  background: #FFF url('../../assets/icons/circle-left.svg') center center no-repeat;
+  right: auto;
+  left: 0;
+}
+
+.arrow-next{
+  background: #FFF url('../../assets/icons/circle-right.svg') center center no-repeat;
+  left: auto;
+  right: 0;
+}
+
+.nav-arrow__svg{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-size: 40px 40px;
+  top: 50%;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-arrow__svg:hover{
+  transform: translateY(-50%) scale(1.2);
+}
