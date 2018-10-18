@@ -1,0 +1,33 @@
+$grey-background: #F4F4F4;
+
+.navbar-brand{
+  align-items: center;
+}
+
+.navbar-menu{
+  background-color: $grey-background;
+  height: calc(100vh - #{$navbar-height});
+  padding: 0.3rem;
+}
+
+.navbar-item{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  background-color: #FFF;
+  margin: 0.3rem 0;
+  border-radius: 5px;
+  height: $navbar-height;
+  &:first-child{
+    margin-top: 0;
+  }
+  &:last-child{
+    margin-bottom: 0;
+  }
+  span{
+    position: relative;
+    bottom: 1px;
+    margin-left: 10px;
+  }
+}

@@ -1,20 +1,5 @@
 <template>
-  <require from="./shell.css"></require>
+  <require from="./custom.css"></require>
   <compose view="./header.html"></compose>
-  <compose view="./sidebar.html"></compose>
-  <div class="router-views">
-  <div class="theme-navigation">
-		<nav>
-			<ul>
-				<li repeat.for="tag of tags"><a route-href="route: tag-view; params.bind: { tag }">${ tag }</a></li>
-			</ul>
-		</nav>
-		<!-- <nav>
-			<ul>
-				<li repeat.for="archive of archives"><a route-href="route: archive-view; params.bind: { archive }">${ archive }</a></li>
-			</ul>
-		</nav> -->
-	</div>
-  <!-- <router-view></router-view> -->
-  </div>
+
 </template>

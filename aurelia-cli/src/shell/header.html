@@ -1,17 +1,33 @@
 <template>
-  <require from="./header.css"></require>
-  <header>
-		<div class="svg-button">
-			<a click.delegate="toggleMenu()">
-			<button>
-				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 26 26" version="1.1" width="26px" height="26px">
-					<g id="surface1">
-					<path style=" " d="M 0 4 L 0 6 L 26 6 L 26 4 Z M 0 12 L 0 14 L 26 14 L 26 12 Z M 0 20 L 0 22 L 26 22 L 26 20 Z "/>
-					</g>
-				</svg>
-			</button>
-			</a>
-		</div>
-		<a href="#" class="logo"><img src="./assets/logo/logo.svg" alt="logo"></a>
-	</header>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+      </a>
+
+      <a role="button" class="navbar-burger burger" click.delegate="toggleMenu()" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu ${isSelected ? 'is-active' : ''} is-active">
+      <div class="navbar-start">
+        <compose view="./login.html"></compose>
+
+        <a class="navbar-item">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
+            <title>Sign up</title>
+            <g id="icomoon-ignore">
+            </g>
+            <path d="M352 0c-88.365 0-160 71.634-160 160 0 10.013 0.929 19.808 2.688 29.312l-194.688 194.688v96c0 17.673 14.327 32 32 32h32v-32h64v-64h64v-64h64l41.521-41.521c17.005 6.158 35.348 9.521 54.479 9.521 88.365 0 160-71.634 160-160s-71.635-160-160-160zM399.937 160.063c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48z"></path>
+          </svg>
+
+          <span>Sign up</span>
+        </a>
+
+      </div>
+    </div>
+  </nav>
 </template>
