@@ -8,6 +8,7 @@ export class Shell {
 
   configureRouter(config, router) {
     this.router = router;
+    config.title = 'Aurelia';
     config.map(routes);
   }
 

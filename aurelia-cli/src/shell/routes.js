@@ -1,16 +1,17 @@
 export default [
   {
-    name: 'shell',
-    route: ['', 'shell'],
-    moduleId: 'shell/shell',
+    name: 'home',
+    route: ['', 'home'],
+    moduleId: 'home/home',
     nav: true,
-    title: 'Shell',
-    settings: { iconClass: 'fa-shell' }
+    title: 'Home',
+    settings: { iconClass: 'fa-home' }
   },
   {
-    route: 'signin',
-    moduleId: 'signin/signin',
+    name: 'login',
+    route: 'login',
+    moduleId: 'login/login',
     nav: true,
-    settings: { iconClass: 'fa-signin' }
+    settings: { iconClass: 'icon-enter' }
   }
 ];
