@@ -12,6 +12,7 @@ export default [
     route: 'login',
     moduleId: 'login/login',
     nav: true,
+    title: 'login',
     settings: { iconClass: 'icon-enter' }
   }
 ];
