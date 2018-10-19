@@ -1,7 +1,7 @@
 <template>
   <require from="../assets/style/custom.css"></require>
   <compose view="./header.html"></compose>
-  <div class="pusher-container ${isSelected ? 'is-active' : ''}">
+  <div click.delegate="pusher()" class="pusher-container ${isSelected ? 'is-active' : ''}">
     <router-view></router-view>
   </div>
 </template>

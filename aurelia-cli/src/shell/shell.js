@@ -19,7 +19,7 @@ export class Shell {
   toggleMenu() {
 		this.isSelected = !this.isSelected;
     // console.log(this.isSelected);
-    this.ea.publish('puppyMonkeyBaby', {testValue: 'What just happened?'});
+    this.ea.publish('puppyMonkeyBaby', {testValue: this.isSelected});
 
 
 	}
@@ -32,6 +32,10 @@ export class Shell {
 
   detached() {
       this.subscriber.dispose();
+  }
+
+  pusher(){
+    this.isSelected = !this.isSelected;
   }
 
 }
