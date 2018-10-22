@@ -1,5 +1,7 @@
 $background-navbar-menu: #F4F4F4;
 $menu-width: 300px;
+$navbar-item-height: 3em;
+$navbar-item-backgroundcolor: #FFF;
 
 html, body{
   position: relative;
@@ -39,6 +41,34 @@ html, body{
     -moz-transition-duration: 1s;
     -o-transition-duration: 1s;
     transition-duration: 1s;
+    
+  }
+}
+
+.navbar-menu{
+  nav ul li{
+    height: $navbar-item-height;
+    background-color: $navbar-item-backgroundcolor;
+    border-radius: 5px;
+    margin: 2px 0;
+    i{
+      margin: 0 10px 0;
+    }
+    a{
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      color: $link;
+      &:hover{
+        color: $link-hover;
+        transition-duration: 0.3;
+      }
+    }
   }
 }
 

@@ -3,7 +3,8 @@ import environment from './environment';
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    .feature('resources');
+    .feature('resources')
+    .plugin('aurelia-animator-css');
 
   aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
 

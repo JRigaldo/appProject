@@ -14,21 +14,17 @@
       </div>
     </nav>
   </header>
-  <aside id="navbarBasicExample" class="navbar-menu ${isSelected ? 'is-active' : ''} is-active">
-    <div class="navbar-end">
-          <a class="navbar-item">
-            <i class="icon-enter"></i>
-            <span>Login</span>
+  <aside id="navbarBasicExample" class="navbar-menu ${isSelected ? 'is-active' : ''}">
+    <nav class="navbar-end">
+      <ul>
+        <li class="${nav.isActive ? 'active' : ''}" repeat.for="nav of router.navigation">
+          <a href.bind="nav.href">
+            <i class="fa ${nav.settings.iconClass}"></i>
+            <span>${nav.title}</span>
           </a>
-          <a class="navbar-item">
-            <i class="icon-enter"></i>
-            <span>Login</span>
-          </a>
-          <a route-href="route: login; params.bind: { id: 'login' }" class="navbar-item">
-            <i class="icon-enter"></i>
-            <span>Login</span>
-          </a>
-    </div>
+        </li>
+      </ul>
+    </nav>
 
   </aside>
 </template>
