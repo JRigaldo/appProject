@@ -1,15 +1,45 @@
 import $ from 'jquery';
 import Slick from 'slick-carousel';
+import Masonry from 'masonry-layout';
 
 export class Home{
 
-  constructor(slick){
-    this.slick = slick;
+  constructor(){
   }
 
 
   attached(){
-    $('.slider').slick()
+    this.slider();
+    this.masonry();
   }
+
+  slider(){
+    setTimeout(() => {
+      $('.slider').slick()
+    }, 1000);
+  }
+
+  masonry() {
+    let grid = document.querySelector('.grid')
+    console.log('masonry grid', grid)
+    let msnry = new Masonry(grid, {
+      // itemSelector: '.grid-item',
+      // percentPosition: true,
+      // columnWidth: 280,
+      // gutter: 50,
+      // transitionDuration: 0,
+      // initLayout: false
+      itemSelector: '.grid-item',
+      columnWidth: 160
+    })
+    console.log('msnry', msnry)
+
+    msnry.once('layoutComplete', () => {
+      grid.classList.add('load')
+    })
+
+    msnry.layout()
+  }
+
 
 }
