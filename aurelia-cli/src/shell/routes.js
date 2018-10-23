@@ -14,7 +14,7 @@ export default [
     moduleId: 'login/login',
     href: '#/login',
     nav: true,
-    title: 'login',
+    title: 'Login',
     settings: { iconClass: 'icon-enter' }
   },
   {

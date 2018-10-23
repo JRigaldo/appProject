@@ -1,11 +1,22 @@
 $background-navbar-menu: #F4F4F4;
-$menu-width: 300px;
+$menu-width: 100%;
 $navbar-item-height: 3em;
 $navbar-item-backgroundcolor: #FFF;
 
 html, body{
   position: relative;
   overflow: hidden;
+}
+
+.au-animate{
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+header{
+  position: relative;
+  z-index: 1;
 }
 
 .navbar-brand{
@@ -21,31 +32,21 @@ html, body{
   width: 20px;
 }
 
-.navbar-menu{
+.navbar-nav{
   position: absolute;
+  top: $navbar-height;
   right: 0;
   bottom: 0;
-  z-index: 1;
-  // top: $navbar-height;
-  width: 100%;
-
+  width: $menu-width;
+  // height: calc(100vh - #{$navbar-height});
+  transform: translateX($menu-width);
+  transition: transform 0.3s;
   background-color: $background-navbar-menu;
-  height: calc(100vh - #{$navbar-height});
   padding: 0.3rem;
-  transition: duration 0.3s;
-  transform: translateX(-300px);
-
-  &.is-active{
+  &.active{
     transform: translateX(0);
-    -webkit-transition-duration: 1s;
-    -moz-transition-duration: 1s;
-    -o-transition-duration: 1s;
-    transition-duration: 1s;
-    
   }
-}
 
-.navbar-menu{
   nav ul li{
     height: $navbar-item-height;
     background-color: $navbar-item-backgroundcolor;
@@ -64,9 +65,48 @@ html, body{
       height: 100%;
       width: 100%;
       color: $link;
-      &:hover{
-        color: $link-hover;
-        transition-duration: 0.3;
+      // &:hover{
+      //   color: $link-hover;
+      //   transition-duration: 0.3;
+      // }
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .navbar-nav{
+    z-index: 2;
+    top: 0;
+    right: 0;
+    width: auto;
+    background-color: inherit;
+    height: $navbar-height;
+    transform: translateX(0);
+    padding: 0;
+    nav ul li{
+      display: inline-block;
+      &:last-child{
+        margin-right: 20px;
+      }
+      a{
+        justify-content: center;
+        padding: 0 10px;
+        margin: 0 5px;
+        min-width: 100px;
+        width: auto;
+        border-radius: 5px;
+
+        &:hover{
+          background-color: lighten($background-navbar-menu, 0.3);
+          // i{
+          //   color: $link-hover;
+          //   transition-duration: 0.3;
+          // }
+        }
+      }
+      i {
+        margin-left: 0;
+        color: $turquoise;
       }
     }
   }
@@ -78,13 +118,13 @@ html, body{
   height: calc(100vh - #{$navbar-height});
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
-  &.is-active{
+  &.active{
     transform: translateX($menu-width * -1);
     overflow-y: hidden;
     }
 }
 
-.site-content.is-active .menu-is-selected{
+.site-content.active .menu-is-selected{
   position: relative;
   min-height: 100%;
   &:before{
