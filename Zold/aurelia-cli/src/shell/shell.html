@@ -1,0 +1,14 @@
+<template>
+  <require from="../assets/style/custom.css"></require>
+  <div class="au-animate">
+    <compose view="./header.html"></compose>
+    <!-- <h1>title: ${router.currentInstruction.config.title}</h1> -->
+
+
+    <div click.delegate="pusher()" class="site-content ${isSelected ? 'active' : ''}">
+      <div class="menu-is-selected">
+        <router-view></router-view>
+      </div>
+    </div>
+  </div>
+</template>
