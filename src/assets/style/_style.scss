@@ -1,5 +1,5 @@
 $background-navbar-menu: #F4F4F4;
-$menu-width: 300px;
+$menu-width: 100%;
 $navbar-item-height: 3em;
 $navbar-item-backgroundcolor: #FFF;
 $navbar-height: 2.53em;
@@ -8,30 +8,3 @@ $navbar-height: 2.53em;
 @import "./_layout";
 @import "./_nav";
 @import "./_router-view";
-
-
-/**
- * MAIN NAVIGATION
- */
-
-.main-navigation nav, ul{
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.main-navigation li{
-  display: block;
-  width: 100%;
-  height: 60px;
-}
-
-.main-navigation nav ul li a{
-  margin: 2px auto;
-  padding: 20px 0 20px 20px;
-  background-color: #2B2D45;
-  text-align: left;
-  letter-spacing: 1px;
-
-}
