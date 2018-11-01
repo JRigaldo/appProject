@@ -21,7 +21,6 @@ export class Home{
 
   masonry() {
     let grid = document.querySelector('.grid')
-    console.log('masonry grid', grid)
     let msnry = new Masonry(grid, {
       // itemSelector: '.grid-item',
       // percentPosition: true,
@@ -32,8 +31,6 @@ export class Home{
       itemSelector: '.grid-item',
       columnWidth: 160
     })
-    console.log('msnry', msnry)
-
     msnry.once('layoutComplete', () => {
       grid.classList.add('load')
     })

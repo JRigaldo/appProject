@@ -6,16 +6,22 @@ export default [
     href: '#/',
     nav: true,
     title: 'Home',
-    settings: { iconClass: 'icon-home' }
+    settings: {
+      iconClass: 'icon-home',
+      iconCross: 'icon-cross'
+    }
   },
   {
     name: 'login',
     route: 'login',
-    moduleId: 'login/login',
+    moduleId: 'login/index',
     href: '#/login',
     nav: true,
-    title: 'Login',
-    settings: { iconClass: 'icon-enter' }
+    title: 'Log in',
+    settings: {
+      iconClass: 'icon-key',
+      iconCross: 'icon-cross'
+    }
   },
   {
     name: 'signin',
@@ -24,8 +30,10 @@ export default [
     href: '#/signin',
     nav: true,
     title: 'Sign in',
-    settings: {iconClass: 'icon-key'}
-
+    settings: {
+      iconClass: 'icon-key',
+      iconCross: 'icon-cross'
+    }
   },
   {
     name: 'users',
@@ -34,7 +42,9 @@ export default [
     href: '#/users',
     nav: true,
     title: 'Users',
-    settings: {iconClass: 'icon-user'}
-
+    settings: {
+      iconClass: 'icon-user',
+      iconCross: 'icon-cross'
+    }
   }
 ];

@@ -1,11 +1,14 @@
 <template>
     <nav class="navbar-nav">
-      <ul>
-        <li class="${nav.isActive ? 'active' : ''}" repeat.for="nav of router.navigation">
+      <ul ref="sidebarMenu">
+        <li class="${nav.isActive ? 'active' : ''} ${homepage ? 'homeLinkHidden' : ''}" repeat.for="nav of router.navigation">
           <a href.bind="nav.href">
             <i class="fa ${nav.settings.iconClass}"></i>
             <span>${nav.title}</span>
           </a>
+          <button click.delegate="backToMenu()">
+            <i class="fa-cross ${nav.settings.iconCross}"></i>
+          </button>
         </li>
       </ul>
     </nav>
