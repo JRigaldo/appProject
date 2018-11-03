@@ -55,82 +55,122 @@ button:hover{
  * MAIN NAVIGATION
  */
 
- aside{
-
+ aside.main-navigation nav{
+  padding-top: 1px;
+  background-color: #FAFAFA;
  }
 
 .main-navigation nav, ul{
   position: relative;
   width: 100%;
-  // height: 100%;
+  height: 100%;
   display: block;
-}
-
-aside.main-navigation ul{
-  position: relative;
-  // top: $navbar-item-height;
-  // padding-top: 20px;
-  margin-top: 2px;
 }
 
 .main-navigation li{
-  position: relative;
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 60px;
-  transition-duration: 0.3s;
-  background-color: $white;
-  &.active a{
+  height: $navbar-item-height;
+  // transition-duration: 0.3s;
+
+  &.active{
+    transition-duration: 0.3s;
+    z-index: 10;
+    transform: translateX($menu-width);
+  }
+
+  .nav-content{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  a{
+    position: relative;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1px;
+    width: 100%;
+    height: $navbar-item-height;
+
+    letter-spacing: 1px;
+    border-radius: 3px;
+  }
+
+  &.active a button.nav-button{
     background-color: $primary;
     color: $white;
   }
-  button{
+
+  & a button.nav-button{
+    background-color: $white;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    text-align: left;
+  }
+
+  button.nav-close{
     position: absolute;
-    display: block;
     right: 0;
-    top: 0;
+    top: 1px;
     bottom: 0;
-    color: $white;
-    width: 20%;
+    z-index: 1;
+    // display: none;
+    color: inherit;
+    width: 15%;
+    height: calc(100% - 1px);
   }
 }
 
-.main-navigation nav ul li a{
-  width: 100%;
-  display: block;
-  margin: 2px auto;
-  padding: 20px 0 20px 20px;
-  background-color: $white;
-  text-align: left;
-  letter-spacing: 1px;
-  border-radius: 3px;
+.main-navigation li:nth-child(1) {
+  top: 0;
 }
 
-.navbar-menu{
-  height: $navbar-height;
+.main-navigation li:nth-child(2) {
+  top: calc(#{$navbar-item-height} * 1);
 }
 
-// aside.main-navigation.click li.active{
-//   transform: translateX(0);
-// }
+.main-navigation li:nth-child(3) {
+  top: calc(#{$navbar-item-height} * 2);
+}
 
-aside.main-navigation li.active{
+.main-navigation li:nth-child(4) {
+  top: calc(#{$navbar-item-height} * 3);
+}
+
+.main-navigation li:nth-child(5) {
+  top: calc(#{$navbar-item-height} * 4);
+}
+
+aside.main-navigation.click li.active{
   transition-duration: 0.3s;
-  // transform: translateX($menu-width);
+  transform: translateX(0);
+
 }
 
-aside.main-navigation ul li.active.homeLinkHidden{
+aside.main-navigation ul li.active.link{
   transform: translateX(0);
 }
 
-aside.main-navigation.click ul li button {
-  display: none;
+// Animation de la croix sur le "li"
+aside.main-navigation li button.nav-close{
+  transition-duration: 0.5s;
+  opacity: 1;
 }
 
-aside.main-navigation ul li button {
-  display: block;
+aside.main-navigation.click li button.nav-close {
+  opacity: 0;
+  transition-duration: 0.3s;
+  visibility: hidden;
 }

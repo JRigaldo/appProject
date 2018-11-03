@@ -13,7 +13,6 @@ export class SideBar{
 
   attached(){
     this.menuIndex();
-    console.log(this.router.isActive);
   }
 
   menuIndex(){
@@ -24,25 +23,28 @@ export class SideBar{
       function clickPosition(e) {
         e.preventDefault;
 
-        if(this.router.isActive === true){
-          return
-        }else{
-          if (lis[i] !== this.e) {
-            ul.prepend(lis[i]);
-          }
+        if(!this.classList.contains('active')){
+          ul.prepend(lis[i]);
         }
-
-
+      }
+    }
+    if (performance.navigation.type) {
+      // console.info( "This page is reloaded" );
+      for(let i = 0; i < lis.length; i++){
+        if (lis[i].classList.contains('active')) {
+          ul.prepend(lis[i])
+        }
       }
     }
   }
 
   backToMenu(){
     let backToMenuButton = true;
-    this.ea.publish('backToMenu', backToMenuButton);
+    this.subscriber = this.ea.publish('backToMenu', backToMenuButton);
   }
 
   detached(){
+    this.clickSubscription.dispose();
     this.subscriber.dispose();
   }
 }
