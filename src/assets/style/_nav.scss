@@ -16,6 +16,11 @@
   padding: 0;
 }
 
+.svg-button button.active svg{
+  fill: $primary;
+  transition-duration: 0.3s;
+}
+
 svg{
   display: block;
   margin: 0 auto;
