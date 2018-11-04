@@ -6,6 +6,9 @@ $navbar-height: 2.53em;
 
 
 @import "./_layout";
+@import "./_layout-mobile";
+@import "./_layout-desktop";
 @import "./_nav";
+@import "./_nav-mobile";
 @import "./_nav-desktop";
 @import "./_router-view";

@@ -1,26 +1,7 @@
 body {
   position: relative;
-  background-size: 100% auto;
-  display: grid;
-  /*grid-gap: 10px;*/
-  grid-template-areas:
-    "aside"
-    "router-views";
-  overflow: hidden;
-}
-
-aside{
-  grid-area: aside;
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: $menu-width;
+  // overflow: hidden;
   height: 100%;
-  transition: 0.3s;
-  margin-top: $navbar-height;
 }
 
 header{
@@ -41,74 +22,64 @@ header{
   // box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.17);
 }
 
+aside{
+  height: calc(100vh - #{$navbar-height});
+}
+
+// ROUTER-VIEWS
 .router-views{
   position: relative;
   z-index: 1;
-  height: 100vh;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-}
-
-// router-views
-
-.site-content{
-  position: relative;
-  transition: transform 0.3s;
   height: calc(100vh - #{$navbar-height});
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  &.active{
-    transform: translateX($menu-width);
-    overflow-y: hidden;
-    }
+  // overflow: hidden;
 }
 
-// ACTION
-aside.main-navigation.click{
-  transform: translateX(0);
-}
-
-aside.main-navigation{
-  transform: translateX($menu-width * -1);
-}
-
-.site-content.active .menu-is-selected{
+.site-content,
+.menu-is-selected{
   position: relative;
-  min-height: 100%;
-  &:before{
-    content: '';
-    display: block;
-    background-color: $background-navbar-menu;
-    opacity: 0.8;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-
-    position: absolute;
-    transform: transition(0.3s);
-    z-index: 10;
-  }
+  height: 100%;
+  // overflow: hidden;
 }
-
-// MAIN COLUMNS
 
 section{
-  max-width: 900px;
-  width: calc(100% - 4rem);
-  margin: 0 auto;
-  overflow-y: -webkit-overflow-scrolling;
+  height: 100%;
+  // overflow-x: hidden;
   overflow-y: scroll;
+  // -webkit-overflow-scrolling: touch;
+
+  // &:after{
+  //   content: '';
+  //   display: table;
+  //   clear: both;
+  // }
 }
 
-.row{
+
+
+// NAV LAYOUT
+header .logo{
+  position: absolute;
   display: -webkit-flex;
-  display: -moz-flex;
   display: -ms-flex;
-  display: -o-flex;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+button{
+  background: transparent;
+  border: none;
+}
+
+button:focus{
+  outline: none;
+}
+
+button:hover{
+  cursor: pointer;
 }

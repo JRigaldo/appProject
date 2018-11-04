@@ -1,3 +1,30 @@
+.row{
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+
+.square_1,
+.square_2,
+.square_3,
+.square_4,
+.square_5,
+.square_6{
+  display: block;
+  width: calc(50% - 20px);
+  float: left;
+  height: 130px;
+  background-color: green;
+  margin: 10px;
+}
+
 /**  Maonry **/
 .grid {
   background: #EEE;

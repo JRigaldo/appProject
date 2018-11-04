@@ -1,0 +1,147 @@
+@media only screen and (max-width: 768px){
+
+  aside{
+    width: $menu-width;
+    margin-top: $navbar-height;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition-duration: 0.3s;
+  }
+
+  // ACTION
+  aside.main-navigation.click{
+    transform: translateX(0);
+  }
+
+  aside.main-navigation{
+    transform: translateX($menu-width * -1);
+  }
+
+  .site-content.active .menu-is-selected{
+    position: relative;
+    min-height: 100%;
+    &:before{
+      content: '';
+      display: block;
+      background-color: $background-navbar-menu;
+      opacity: 0.8;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+
+      position: absolute;
+      transform: transition(0.3s);
+      z-index: 10;
+    }
+  }
+
+  .svg-button{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    display: block;
+    transform: translateY(-50%);
+    border-radius: 5px;
+  }
+
+  .svg-button a button {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+  }
+
+  .svg-button button.active svg{
+    fill: $primary;
+    transition-duration: 0.3s;
+  }
+
+  svg{
+    display: block;
+    margin: 0 auto;
+    height: 25px;
+    width: 25px;
+    fill: #000;
+  }
+
+  .main-navigation li{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &.active{
+      transition-duration: 0.3s;
+      z-index: 10;
+      transform: translateX($menu-width);
+    }
+
+    & a button.nav-button{
+      border-radius: 4px;
+    }
+
+    button.nav-close{
+      position: absolute;
+      right: 0;
+      top: 1px;
+      bottom: 0;
+      z-index: 1;
+      // display: none;
+      color: inherit;
+      width: 15%;
+      height: calc(100% - 1px);
+    }
+  }
+
+
+  .main-navigation li:nth-child(1) {
+    top: 0;
+  }
+
+  .main-navigation li:nth-child(2) {
+    top: calc(#{$navbar-item-height} * 1);
+  }
+
+  .main-navigation li:nth-child(3) {
+    top: calc(#{$navbar-item-height} * 2);
+  }
+
+  .main-navigation li:nth-child(4) {
+    top: calc(#{$navbar-item-height} * 3);
+  }
+
+  .main-navigation li:nth-child(5) {
+    top: calc(#{$navbar-item-height} * 4);
+  }
+
+  aside.main-navigation.click li.active{
+    transition-duration: 0.3s;
+    transform: translateX(0);
+
+  }
+
+  aside.main-navigation ul li.active.link{
+    transform: translateX(0);
+  }
+
+  // Animation de la croix sur le "li"
+  aside.main-navigation li button.nav-close{
+    transition-duration: 0.5s;
+    opacity: 1;
+  }
+
+  aside.main-navigation.click li button.nav-close {
+    opacity: 0;
+    transition-duration: 0.3s;
+    visibility: hidden;
+  }
+
+}

@@ -1,64 +1,14 @@
-.svg-button{
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 50px;
-  height: 50px;
-  display: block;
-  transform: translateY(-50%);
-  border-radius: 5px;
-}
-
-.svg-button a button {
-  position: relative;
-  width: 50px;
-  height: 50px;
-  padding: 0;
-}
-
-.svg-button button.active svg{
-  fill: $primary;
-  transition-duration: 0.3s;
-}
-
-svg{
-  display: block;
-  margin: 0 auto;
-  height: 25px;
-  width: 25px;
-  fill: #000;
-}
-
-header .logo{
-  position: absolute;
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 120px;
-  height: 50px;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-}
-
-button{
-  background: transparent;
-  border: none;
-}
-
-button:focus{
-  outline: none;
-}
-
-button:hover{
-  cursor: pointer;
-}
-
 /**
  * MAIN NAVIGATION
  */
+
+ .site-content{
+   transition: transform 0.3s;
+   &.active{
+     transform: translateX($menu-width);
+     overflow-y: hidden;
+     }
+ }
 
  aside.main-navigation nav{
   padding-top: 1px;
@@ -73,17 +23,22 @@ button:hover{
 }
 
 .main-navigation li{
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
   height: $navbar-item-height;
   // transition-duration: 0.3s;
 
-  &.active{
-    transition-duration: 0.3s;
-    z-index: 10;
-    transform: translateX($menu-width);
+  &.active a button.nav-button{
+    background-color: $primary;
+    color: $white;
+    border-radius: none;
+  }
+
+  & a button.nav-button{
+    background-color: $white;
+    width: 100%;
+    height: 100%;
+    text-align: left;
   }
 
   .nav-content{
@@ -111,71 +66,4 @@ button:hover{
     letter-spacing: 1px;
     border-radius: 3px;
   }
-
-  &.active a button.nav-button{
-    background-color: $primary;
-    color: $white;
-  }
-
-  & a button.nav-button{
-    background-color: $white;
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-    text-align: left;
-  }
-
-  button.nav-close{
-    position: absolute;
-    right: 0;
-    top: 1px;
-    bottom: 0;
-    z-index: 1;
-    // display: none;
-    color: inherit;
-    width: 15%;
-    height: calc(100% - 1px);
-  }
-}
-
-.main-navigation li:nth-child(1) {
-  top: 0;
-}
-
-.main-navigation li:nth-child(2) {
-  top: calc(#{$navbar-item-height} * 1);
-}
-
-.main-navigation li:nth-child(3) {
-  top: calc(#{$navbar-item-height} * 2);
-}
-
-.main-navigation li:nth-child(4) {
-  top: calc(#{$navbar-item-height} * 3);
-}
-
-.main-navigation li:nth-child(5) {
-  top: calc(#{$navbar-item-height} * 4);
-}
-
-aside.main-navigation.click li.active{
-  transition-duration: 0.3s;
-  transform: translateX(0);
-
-}
-
-aside.main-navigation ul li.active.link{
-  transform: translateX(0);
-}
-
-// Animation de la croix sur le "li"
-aside.main-navigation li button.nav-close{
-  transition-duration: 0.5s;
-  opacity: 1;
-}
-
-aside.main-navigation.click li button.nav-close {
-  opacity: 0;
-  transition-duration: 0.3s;
-  visibility: hidden;
 }
