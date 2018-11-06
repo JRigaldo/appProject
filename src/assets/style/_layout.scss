@@ -1,6 +1,6 @@
 body {
   position: relative;
-  // overflow: hidden;
+  overflow: hidden;
   height: 100%;
 }
 
@@ -31,21 +31,21 @@ aside{
   position: relative;
   z-index: 1;
   height: calc(100vh - #{$navbar-height});
-  // overflow: hidden;
+  overflow: hidden;
 }
 
 .site-content,
 .menu-is-selected{
   position: relative;
   height: 100%;
-  // overflow: hidden;
+  overflow: hidden;
 }
 
 section{
   height: 100%;
-  // overflow-x: hidden;
+  overflow-x: hidden;
   overflow-y: scroll;
-  // -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
 
   // &:after{
   //   content: '';

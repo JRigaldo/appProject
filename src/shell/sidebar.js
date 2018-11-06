@@ -24,7 +24,10 @@ export class SideBar{
         e.preventDefault;
 
         if(!this.classList.contains('active')){
-          ul.prepend(lis[i]);
+
+          // setTimeout(() => {
+            ul.prepend(lis[i]);
+          // }, 0);
         }
       }
     }

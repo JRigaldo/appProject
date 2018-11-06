@@ -1,58 +1,108 @@
-import {bindable} from 'aurelia-framework';
-import {inject} from 'aurelia-framework';
+import $ from 'jquery';
+import Slick from 'slick-carousel';
 
-@inject(Element)
-export class Carousel {
-  @bindable items;
-
-  constructor(options = {}){
-    this.options = Object.assign({}, {
-      slidesToScroll: 3,
-      slidesVisible: 2
-    }, options);
-  }
-
-
+export class Carousel{
 
   attached(){
-    let children = [].slice.call(this.carousel.children);
-    this.currentItem = 0;
+    setTimeout(() => {
 
-    let items = children.map(child => {
-      let childClass = document.createElement('div');
-      childClass.setAttribute('class', 'item-class');
-      childClass.appendChild(child)
-      this.carousel.appendChild(childClass)
+      $('.slider').slick({
+        dots: true,
+        speed: 500,
+        arrows: true,
+        dotsClass: 'slick-dots custom-pagination',
+        customPaging: function (slider, i) {
+          return  (i + 1) + '/' + slider.slideCount;
+        },
+        responsive: [
+          {
+            breakpoint: 769,
+            settings: {
+              arrows: false
+            }
+          }
+        ]
+      });
 
-      return childClass
-    });
+      $( ".slick-dots" ).clone().appendTo( ".copy-dots" ).children().empty();
 
-    let ratio = this.carousel.children.length / this.options.slidesVisible
-    this.carousel.style.width = (ratio * 100) + '%';
-    items.forEach(item => {
-      item.style.width = ((100 / this.options.slidesVisible) / ratio) + '%';
-    });
+      var activeClass = 'slick-active', ariaAttribute = 'aria-hidden';
+      $('.slider').on('init', function(){
+        $('.copy-dots .custom-pagination li:first-of-type').addClass(activeClass).attr( ariaAttribute, false );
+      })
+
+      $('.slider').on('afterChange', function(event, slick, currentSlide){
+
+        var $dots = $('.copy-dots .custom-pagination');
+        $('li', $dots).removeClass(activeClass).attr(ariaAttribute, true);
+        $dots.each(function() {
+          $('li', $(this)).eq(currentSlide).addClass(activeClass).attr(ariaAttribute, false);
+        })
+      })
+    }, 0);
+
   }
-
-prev(){
-  this.goTiItem(this.currentItem + this.options.slidesToScroll);
 }
 
-next(){
-  this.goTiItem(this.currentItem - this.options.slidesToScroll);
-}
+//COPY CLONE OF PAGINATION
+// var activeClass = 'slick-active',
+// ariaAttribute = 'aria-hidden';
+// $( '.slider' )
+// .on( 'init', function() {
+//     $( '.slick-dots li:first-of-type' ).addClass( activeClass ).attr( ariaAttribute, false );
+// } )
+// .on( 'afterChange', function( event, slick, currentSlide ) {
+//     var $dots = $( '.slick-dots' );
+//     $( 'li', $dots ).removeClass( activeClass ).attr( ariaAttribute, true );
+//     $dots.each( function() {
+//         $( 'li', $( this ) ).eq( currentSlide ).addClass( activeClass ).attr( ariaAttribute, false );
+//     } );
+// } );
 
-goTiItem(index){
-  if (index < 0) {
-    index = this.items.length - this.options.slidesVisible;
-  }else if(index >= this.items.length || this.items[this.currentItem + this.options.slidesVisible] === undefined){
-    index = 0
-  }
-  let translateX = (index * -100) / this.items.length;
-  this.carousel.style.transform = 'translate3d('+ translateX +'%, 0, 0)';
-  this.currentItem = index;
-  debugger
-}
 
-
-}
+//COPY CLONE OF PAGINATION AND CLICK (DIDN'TRIED)
+// $('.containElements').on('init', function(event, slick) {
+//
+//   var dotsClone = ''
+//   $(".containElements ul.slick-dots li").each(function() {
+//     dotsClone = dotsClone + '<li class="dot-' + $(this).index() + '" data-slick-index="' + $(this).index() + '"></li>'
+//   });
+//
+//   var dotsCloneElement = document.createElement('ul');
+//   dotsCloneElement.className = 'slick-dots-clone slick-dots';
+//   dotsCloneElement.innerHTML = dotsClone;
+//
+//   $('#services .slick-dots').addClass('slick-dots-original');
+//
+//   $('#services .slick-slider').append(dotsCloneElement);
+//
+//   $('.slick-dots-clone li').click(function() {
+//     var slickIndex = $(this).data('slick-index');
+//     $('.slick-dots-clone li').removeClass('slick-active');
+//     $(this).addClass('slick-active');
+//
+//     $('.slick-dots-original li').eq(slickIndex).click();
+//   });
+//
+//   setInterval(function() {
+//     $(".slick-dots-original li").each(function() {
+//       if ($(this).hasClass('slick-active')) {
+//         var slickIndex = ($(this).find('button').text() - 1);
+//         $('.slick-dots-clone li').removeClass('slick-active');
+//         $('.slick-dots-clone li').eq(slickIndex).addClass('slick-active');
+//       }
+//     });
+//   }, 100);
+//
+// });
+//
+// $('.containElements').slick({
+//   dots: true,
+//   arrows: false,
+//   autoplay: false,
+//   infinite: false,
+//   speed: 300,
+//   adaptiveHeight: true,
+//   slidesToShow: 1,
+//   slidesToScroll: 1
+// });
