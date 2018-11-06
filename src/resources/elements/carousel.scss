@@ -5,26 +5,26 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    color: red;
     z-index: 10;
+    &:before{
+      font-family: "icomoon";
+      speak: none;
+      font-size: 2em;
+      color: rgba($white, 0.4);
+    }
   }
 
   button.slick-arrow.slick-prev{
-    // background: url('../../assets/icons/SVG/amazon.svg') no-repeat center center;
     left: 0;
+    &:before{
+      content: "\ea38";
+    }
   }
 
   button.slick-arrow.slick-next{
     right: 0;
     &:before{
-      font-family: "icomoon";
-      content: attr('arrow-right');
-      speak: none;
-      font-weight: normal;
-      font-variant: normal;
-      text-transform: none;
-      line-height: 1;
-      -webkit-font-smoothing: antialiased;
+      content: "\ea34";
     }
   }
 }

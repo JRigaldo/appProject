@@ -9,7 +9,8 @@ export class Carousel{
       $('.slider').slick({
         dots: true,
         speed: 500,
-        arrows: true,
+        nextArrow: '<button class="slick-next"></button>',
+        prevArrow: '<button class="slick-prev"></button>',
         dotsClass: 'slick-dots custom-pagination',
         customPaging: function (slider, i) {
           return  (i + 1) + '/' + slider.slideCount;
@@ -39,6 +40,11 @@ export class Carousel{
           $('li', $(this)).eq(currentSlide).addClass(activeClass).attr(ariaAttribute, false);
         })
       })
+
+      $(".slick-next").empty();
+      $(".slick-prev").empty();
+
+
     }, 0);
 
   }
