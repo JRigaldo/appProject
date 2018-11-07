@@ -47,16 +47,16 @@ section{
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 
-  // &:after{
-  //   content: '';
-  //   display: table;
-  //   clear: both;
-  // }
+  &:after{
+    content: '';
+    display: table;
+    clear: both;
+  }
 }
 
 
 
-// NAV LAYOUT
+// HEADER LAYOUT
 header .logo{
   position: absolute;
   display: -webkit-flex;
@@ -71,9 +71,51 @@ header .logo{
   transform: translateY(-50%);
 }
 
-header .navbar-menu .navbar-end .navbar-item{
-  display: block;
-  padding: 2px;
+header .svg-button{
+  display: none;
+}
+
+header .navbar-menu.end{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: stretch;
+  height: 100%;
+  padding: 0;
+  button.navbar-button{
+    margin: 5px;
+    border-radius: 5px;
+    background-color: $primary;
+    color: $white;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+    min-width: 80px;
+    max-height: 50px;
+  }
+  button.icon-cool2{
+    width: 60px;
+    &:before{
+      content: '\e9eb';
+      font-family: 'icomoon';
+      font-size: 2em;
+      color: $black-ter
+    }
+  }
+  button.icon-main-menu{
+    width: 60px;
+    svg{
+      height: 20px;
+      fill: $black-ter;
+    }
+  }
+}
+
+header .icon-moon2{
+  content: '\e9eb';
+  font-family: "icomoon";
+  speak: none;
 }
 
 button{
