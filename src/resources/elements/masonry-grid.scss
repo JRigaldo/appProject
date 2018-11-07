@@ -1,0 +1,29 @@
+.main-grid{
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.grid {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* clearfix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.grid-item {
+  width: 180px;
+  height: 120px;
+  float: left;
+  background: #D26;
+  margin-bottom: 2px;
+}
+
+.grid-item--height2 { height: 200px; }
+.grid-item--height3 { height: 260px; }
