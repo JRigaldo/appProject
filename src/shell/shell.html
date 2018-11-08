@@ -6,11 +6,9 @@
   <aside class="main-navigation ${isSelected ? 'click' : ''}">
     <compose view-model="./sidebar"></compose>
 	</aside>
-	<div class="router-views">
-    <div click.delegate="pusher()" class="site-content ${isSelected ? 'active' : ''}">
-      <div class="menu-is-selected">
-        <router-view></router-view>
-      </div>
+	<div class="router-views ${isSelected ? 'active' : ''}" click.delegate="pusher()">
+    <div class="menu-is-selected">
+      <router-view></router-view>
     </div>
 	</div>
 </template>

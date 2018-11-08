@@ -1,8 +1,9 @@
 $background-navbar-menu: #F4F4F4;
-$menu-width: 100%;
 $navbar-item-height: 3em;
 $navbar-item-backgroundcolor: #FFF;
 $navbar-height: 2.53em;
+$menu-width-mobile: 100%;
+$menu-width-desktop: 200px;
 
 
 @import "./_layout";

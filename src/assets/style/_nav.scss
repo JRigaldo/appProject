@@ -1,18 +1,41 @@
+// ACTION
+aside.main-navigation.click{
+  transform: translateX(0);
+}
+
+.router-views.active .menu-is-selected{
+  position: relative;
+  min-height: 100%;
+  &:before{
+    content: '';
+    display: block;
+    background-color: $background-navbar-menu;
+    opacity: 0.8;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+
+    position: absolute;
+    transform: transition(0.3s);
+    z-index: 10;
+  }
+}
+
 /**
  * MAIN NAVIGATION
  */
 
- .site-content{
+ .router-views{
    transition: transform 0.3s;
    &.active{
-     transform: translateX($menu-width);
      overflow-y: hidden;
      }
  }
 
  aside.main-navigation nav{
-  padding-top: 1px;
-  background-color: #FAFAFA;
+   background-color: $white-bis;
  }
 
 .main-navigation nav, ul{
@@ -23,10 +46,13 @@
 }
 
 .main-navigation li{
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition-duration: 0.3s;
+
   width: 100%;
   height: $navbar-item-height;
-  // transition-duration: 0.5s;
 
   &.active a button.nav-button{
     background-color: $primary;
@@ -66,4 +92,24 @@
     letter-spacing: 1px;
     border-radius: 3px;
   }
+}
+
+.main-navigation li:nth-child(1) {
+  top: 0;
+}
+
+.main-navigation li:nth-child(2) {
+  top: calc(#{$navbar-item-height} * 1);
+}
+
+.main-navigation li:nth-child(3) {
+  top: calc(#{$navbar-item-height} * 2);
+}
+
+.main-navigation li:nth-child(4) {
+  top: calc(#{$navbar-item-height} * 3);
+}
+
+.main-navigation li:nth-child(5) {
+  top: calc(#{$navbar-item-height} * 4);
 }

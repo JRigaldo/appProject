@@ -5,36 +5,40 @@ body {
 }
 
 header{
-  /*position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;*/
   position: relative;
   display: block;
   height: $navbar-height;
   width: 100%;
   overflow: hidden;
   background-color: #FFF;
-  /*z-index: 2;*/
+  z-index: 3;
 
-  // -webkit-box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.17);
-  // -moz-box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.17);
-  // box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.17);
+  -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.15);
+  box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.15);
 }
 
 aside{
   height: calc(100vh - #{$navbar-height});
 }
 
+aside{
+  position: absolute;
+  top: $navbar-height;
+  left: 0;
+  bottom: 0;
+  transition-duration: 0.3s;
+  z-index: 2;
+}
+
 // ROUTER-VIEWS
 .router-views{
   position: relative;
-  z-index: 1;
   height: calc(100vh - #{$navbar-height});
   overflow: hidden;
+  z-index: 1;
 }
 
-.site-content,
 .menu-is-selected{
   position: relative;
   height: 100%;
@@ -54,55 +58,81 @@ section{
   }
 }
 
-
-
 // HEADER LAYOUT
-header .logo{
-  position: absolute;
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 120px;
-  height: 50px;
-  top: 50%;
-  left: 35px;
-  transform: translateY(-50%);
-}
 
-header .svg-button{
-  display: none;
+header .navbar-menu.start{
+  float: left;
 }
-
 header .navbar-menu.end{
+  float: right;
+}
+
+header .navbar-menu{
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
   flex-wrap: nowrap;
-  justify-content: flex-end;
   align-items: stretch;
   height: 100%;
   padding: 0;
-  button.navbar-button{
-    margin: 5px;
-    border-radius: 5px;
-    background-color: $primary;
-    color: $white;
-    letter-spacing: 1px;
-    font-size: 0.9em;
-    min-width: 80px;
-    max-height: 50px;
+  box-shadow: none;
+
+  &:after{
+    content: '';
+    clear: both;
+    display: table;
   }
-  button.icon-cool2{
+
+  a{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+    margin: 0 5px;
+    width: 80px;
+  }
+
+  a.logo{
+    width: 90px;
+  }
+
+  a.icon{
+    height: auto;
+    width: 50px;
+  }
+
+  button.navbar-button{
+    font-size: 0.9em;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    max-height: 50px;
+    height: 80%;
+  }
+
+  button.fa{
     width: 60px;
     &:before{
-      content: '\e9eb';
       font-family: 'icomoon';
       font-size: 2em;
       color: $black-ter
     }
   }
+
+  button.icon-cool2{
+    &:before{
+      content: '\e9eb';
+    }
+  }
+
+  button.icon-menu{
+    &:before{
+      content: '\e9bd';
+    }
+  }
+
   button.icon-main-menu{
     width: 60px;
     svg{

@@ -1,29 +1,31 @@
 <template>
-  <div class="svg-button">
-    <a click.delegate="toggleMenu()">
-    <button class="${isSelected ? 'active' : ''}">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 26 26" version="1.1" width="26px" height="26px">
-        <g id="surface1">
-        <path style=" " d="M 0 4 L 0 6 L 26 6 L 26 4 Z M 0 12 L 0 14 L 26 14 L 26 12 Z M 0 20 L 0 22 L 26 22 L 26 20 Z "/>
-        </g>
-      </svg>
-    </button>
+  <div class="navbar-menu start">
+    <a click.delegate="toggleMenu()" class="icon">
+      <button class="${isSelected ? 'active' : ''} fa icon-menu"></button>
+    </a>
+    <a class="logo" href="https://bulma.io">
+      <img src="https://bulma.io/images/bulma-logo.png">
     </a>
   </div>
-  <a class="logo" href="https://bulma.io">
-    <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-  </a>
   <div class="navbar-menu end">
-    <button class="fa icon-cool2"></button>
-    <button class="navbar-button">Sign in</button>
-    <button class="navbar-button">Sign up</button>
-    <button class ="fa icon-main-menu">
-      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 384 384" style="enable-background:new 0 0 384 384;" xml:space="preserve">
-      	<g><circle cx="192" cy="42.667" r="42.667"/></g>
-      	<g><circle cx="192" cy="192" r="42.667"/></g>
-      	<g><circle cx="192" cy="341.333" r="42.667"/></g>
-      </svg>
-    </button>
+    <a href="" class="icon">
+      <button class="fa icon-cool2"></button>
+    </a>
+    <a href="">
+      <button class="navbar-button">Sign in</button>
+    </a>
+    <a href="">
+      <button class="navbar-button">Sign up</button>
+    </a>
+    <!-- <a href="">
+      <button class ="fa icon-main-menu">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 384 384" style="enable-background:new 0 0 384 384;" xml:space="preserve">
+        	<g><circle cx="192" cy="42.667" r="42.667"/></g>
+        	<g><circle cx="192" cy="192" r="42.667"/></g>
+        	<g><circle cx="192" cy="341.333" r="42.667"/></g>
+        </svg>
+      </button>
+    </a> -->
   </div>
   </div>
 </template>
