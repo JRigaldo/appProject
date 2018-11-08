@@ -2,9 +2,10 @@
   aside{
     width: $menu-width-desktop;
   }
+  
   .router-views{
     &.active{
-      transform: translateX($menu-width-desktop);
+      left: $menu-width-desktop;
       }
   }
 
@@ -17,43 +18,6 @@
   }
 
 .main-navigation li {
-
-  a button.nav-button{
-    background-color: $white-bis;
-    transition-duration: 0.3s;
-    span{
-      font-size: 1.17em;
-      color: $grey;
-      font-weight: 500;
-    }
-    i{
-      position: relative;
-      top: 3px;
-      margin: 0 20px;
-      color: $grey;
-      font-size: 1.8em;
-    }
-  }
-  &.active a button.nav-button{
-    background-color: $grey-lighter;
-    span{
-      color: $grey-darker;
-      font-weight: 700;
-    }
-    i{
-      color: $primary;
-    }
-    &:hover{
-      background-color: darken($grey-lighter, 5%);
-    }
-  }
-
-  & a button.nav-button{
-    &:hover{
-      background-color: darken($white-ter, 5%);
-      transition-duration: 0.3s;
-    }
-  }
 
   button.nav-close{
     display: none;

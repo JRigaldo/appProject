@@ -12,6 +12,10 @@
     transform: translateX($menu-width-mobile * -1);
   }
 
+  .main-navigation.click li.active a button.nav-button{
+    border-radius: 4px;
+  }
+
   .main-navigation li{
     &.active{
       transition-duration: 0.3s;
@@ -19,7 +23,7 @@
       transform: translateX($menu-width-mobile);
     }
 
-    & a button.nav-button{
+    a button.nav-button{
       border-radius: 4px;
     }
 

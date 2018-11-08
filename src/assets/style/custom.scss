@@ -18,4 +18,18 @@
 @import "../../../node_modules/bulma/bulma.sass";
 @import "../../../node_modules/slick-carousel/slick/slick.css";
 
-@import "./_style";
+$background-navbar-menu: #F4F4F4;
+$navbar-item-height: 3em;
+$navbar-item-backgroundcolor: #FFF;
+$navbar-height: 2.53em;
+$menu-width-mobile: 100%;
+$menu-width-desktop: 200px;
+
+
+@import "./_layout";
+@import "./_layout-mobile";
+@import "./_layout-desktop";
+@import "./_nav";
+@import "./_nav-mobile";
+@import "./_nav-desktop";
+@import "./_router-view";
