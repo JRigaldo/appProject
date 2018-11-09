@@ -1,16 +1,16 @@
 <template>
   <require from="../assets/style/custom.css"></require>
-  <div class="${isSelected ? 'is-activeMenu' : ''}">
+  <div class="body ${isSelected ? 'is-active' : ''}">
     <header>
       <compose view="./header.html"></compose>
     </header>
     <aside class="main-navigation">
       <compose view-model="./sidebar"></compose>
   	</aside>
-  	<div class="router-views" click.delegate="pusher()">
-      <!-- <div class="menu-is-selected"> -->
+  	<div class="router-views">
+      <div class="menu-is-selected" click.delegate="pusher()">
         <router-view></router-view>
-      <!-- </div> -->
+      </div>
   	</div>
   </div>
 </template>

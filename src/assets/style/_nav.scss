@@ -1,9 +1,9 @@
 // ACTION
-aside.main-navigation.click{
+.is-activeMenu aside.main-navigation{
   transform: translateX(0);
 }
 
-.router-views.active .menu-is-selected{
+.is-activeMenu .router-views .menu-is-selected{
   position: relative;
   min-height: 100%;
   &:before{
@@ -63,17 +63,6 @@ aside.main-navigation.click{
     width: 100%;
     height: 100%;
     text-align: left;
-  }
-
-  .nav-content{
-    position: relative;
-    height: 100%;
-    width: 100%;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
   }
 
   a{

@@ -2,11 +2,9 @@
   aside{
     width: $menu-width-desktop;
   }
-  
-  .router-views{
-    &.active{
-      left: $menu-width-desktop;
-      }
+
+  .is-activeMenu .router-views{
+    left: $menu-width-desktop;
   }
 
   aside.main-navigation{
@@ -17,11 +15,10 @@
     top: 10px;
   }
 
-.main-navigation li {
-
-  button.nav-close{
-    display: none;
-  }
+  .main-navigation li {
+    button.nav-close{
+      display: none;
+    }
 }
 
 
