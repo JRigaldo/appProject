@@ -3,6 +3,10 @@ import Slick from 'slick-carousel';
 
 export class Carousel{
 
+  constructor(){
+
+  }
+
   attached(){
     setTimeout(() => {
 
@@ -25,6 +29,11 @@ export class Carousel{
         ]
       });
 
+      // $(document).ready(function() {
+      // $(window).on('resize', '', {'width': $('.router-views').width()}, this.onResizeWatch)});
+
+      // $(window).on('resize', {'width': $('.router-views').width()});
+
       $( ".slick-dots" ).clone().appendTo( ".copy-dots" ).children().empty();
 
       var activeClass = 'slick-active', ariaAttribute = 'aria-hidden';
@@ -44,10 +53,28 @@ export class Carousel{
       $(".slick-next").empty();
       $(".slick-prev").empty();
 
+      // $('.router-views').slick({
+      //   onAfterChange: function(oldValue, newValue) {
+      //     if(oldValue !== newValue){
+      //       console.log(oldValue, newValue);
+      //       $('.slider').slickSetOption(null, null, true);
+      //     }
+      //
+      //   }
+      // });
+
 
     }, 0);
-
   }
+
+  // onResize(){
+  //   $('.router-views').slick({
+  //
+  //   })
+  // }
+
+
+
 }
 
 //COPY CLONE OF PAGINATION
