@@ -18,6 +18,15 @@ export class Shell{
     this.subscription = this.ea.subscribe(
       'router:navigation:success',
       this.navigationSuccess.bind(this));
+
+    this.subscriber = this.ea.subscribe('backToMenu', backToMenuButton => {
+       this.isSelected = true;
+    });
+
+    // ENLEVE LE LI 'HOME' SI LE ROUTER EST HOME AU REFRESH
+    if (this.router.currentInstruction.config.name === 'home') {
+      this.homepage = true;
+    }
   }
 
   navigationSuccess(event) {
@@ -35,14 +44,6 @@ export class Shell{
   toggleMenu() {
 		this.isSelected = !this.isSelected;
 	}
-
-  pusher(){
-    if(this.selected === true){
-      this.isSelected = false;
-    }else{
-      this.isSelected = false;
-    }
-  }
 
   detached() {
       this.subscription.dispose();

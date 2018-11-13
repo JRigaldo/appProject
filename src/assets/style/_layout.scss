@@ -19,17 +19,14 @@ header{
   box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.15);
 }
 
-aside{
-  height: calc(100vh - #{$navbar-height});
-}
-
-aside{
+aside.main-navigation{
   position: absolute;
   top: $navbar-height;
   right: 0;
   bottom: 0;
   transition-duration: 0.3s;
   z-index: 2;
+  height: calc(100vh - #{$navbar-height});
 }
 
 // ROUTER-VIEWS

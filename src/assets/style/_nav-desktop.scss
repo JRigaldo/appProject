@@ -1,14 +1,11 @@
 @media only screen and (min-width: 769px){
-  aside{
-    width: $menu-width-desktop;
-  }
-
   .has-sidebar .router-views{
     transform: translateX($menu-width-desktop   * -1);
   }
 
   aside.main-navigation{
     transform: translateX($menu-width-desktop);
+    width: $menu-width-desktop;
   }
 
   .main-navigation ul{
