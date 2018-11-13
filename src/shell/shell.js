@@ -36,6 +36,14 @@ export class Shell{
 		this.isSelected = !this.isSelected;
 	}
 
+  pusher(){
+    if(this.selected === true){
+      this.isSelected = false;
+    }else{
+      this.isSelected = false;
+    }
+  }
+
   detached() {
       this.subscription.dispose();
       this.subscriber.dispose();

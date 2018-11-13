@@ -4,11 +4,11 @@
   }
 
   .has-sidebar .router-views{
-    left: $menu-width-desktop;
+    transform: translateX($menu-width-desktop   * -1);
   }
 
   aside.main-navigation{
-    transform: translateX($menu-width-desktop * -1);
+    transform: translateX($menu-width-desktop);
   }
 
   .main-navigation ul{

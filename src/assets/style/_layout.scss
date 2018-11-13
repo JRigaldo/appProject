@@ -26,7 +26,7 @@ aside{
 aside{
   position: absolute;
   top: $navbar-height;
-  left: 0;
+  right: 0;
   bottom: 0;
   transition-duration: 0.3s;
   z-index: 2;
@@ -34,20 +34,13 @@ aside{
 
 // ROUTER-VIEWS
 .router-views{
-
-  position: absolute;
-  top: $navbar-height;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
+  height: calc(100vh - #{$navbar-height});
+  overflow: hidden;
+  transform: translateX(0);
   transition-duration: 0.3s;
-  z-index: 1;
-
-  // position: relative;
-  // height: calc(100vh - #{$navbar-height});
-  // overflow: hidden;
-
 }
+
 
 .menu-is-selected{
   position: relative;

@@ -3,6 +3,10 @@
     <require from="../assets/style/custom.css"></require>
     <compose view="./header.html"></compose>
     <compose view-model="./sidebar"></compose>
-    <router-view class="router-views"></router-view>
+    <div class="router-views">
+      <div class="menu-is-selected">
+        <router-view></router-view>
+      </div>
+    </div>
   </div>
 </template>

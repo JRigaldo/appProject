@@ -3,11 +3,11 @@
     width: $menu-width-mobile;
   }
   .has-sidebar .router-views{
-    transform: translateX($menu-width-mobile);
+    transform: translateX($menu-width-mobile * -1);
   }
 
   aside.main-navigation{
-    transform: translateX($menu-width-mobile * -1);
+    transform: translateX($menu-width-mobile);
   }
 
   .has-sidebar .main-navigation li.active a button.nav-button{
