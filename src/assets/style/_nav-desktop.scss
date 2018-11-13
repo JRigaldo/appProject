@@ -2,11 +2,9 @@
   aside{
     width: $menu-width-desktop;
   }
-  
-  .router-views{
-    &.active{
-      left: $menu-width-desktop;
-      }
+
+  .has-sidebar .router-views{
+    left: $menu-width-desktop;
   }
 
   aside.main-navigation{

@@ -1,31 +1,32 @@
 <template>
-  <div class="navbar-menu start">
-    <a click.delegate="toggleMenu()" class="icon">
-      <button class="${isSelected ? 'active' : ''} fa icon-menu"></button>
-    </a>
-    <a class="logo" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo.png">
-    </a>
-  </div>
-  <div class="navbar-menu end">
-    <a href="" class="icon">
-      <button class="fa icon-cool2"></button>
-    </a>
-    <a href="">
-      <button class="navbar-button">Sign in</button>
-    </a>
-    <a href="">
-      <button class="navbar-button">Sign up</button>
-    </a>
-    <!-- <a href="">
-      <button class ="fa icon-main-menu">
-        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 384 384" style="enable-background:new 0 0 384 384;" xml:space="preserve">
-        	<g><circle cx="192" cy="42.667" r="42.667"/></g>
-        	<g><circle cx="192" cy="192" r="42.667"/></g>
-        	<g><circle cx="192" cy="341.333" r="42.667"/></g>
-        </svg>
-      </button>
-    </a> -->
-  </div>
-  </div>
+  <header>
+    <div class="navbar-menu start">
+      <a click.delegate="toggleMenu()" class="icon">
+        <button class="${isSelected ? 'active' : ''} fa icon-menu"></button>
+      </a>
+      <a class="logo" href="https://bulma.io">
+        <img src="https://bulma.io/images/bulma-logo.png">
+      </a>
+    </div>
+    <div class="navbar-menu end">
+      <a href="" class="icon">
+        <button class="fa icon-cool2"></button>
+      </a>
+      <a href="">
+        <button class="navbar-button">Sign in</button>
+      </a>
+      <a href="">
+        <button class="navbar-button">Sign up</button>
+      </a>
+      <!-- <a href="">
+        <button class ="fa icon-main-menu">
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 384 384" style="enable-background:new 0 0 384 384;" xml:space="preserve">
+            <g><circle cx="192" cy="42.667" r="42.667"/></g>
+            <g><circle cx="192" cy="192" r="42.667"/></g>
+            <g><circle cx="192" cy="341.333" r="42.667"/></g>
+          </svg>
+        </button>
+      </a> -->
+    </div>
+  </header>
 </template>

@@ -2,17 +2,15 @@
   aside{
     width: $menu-width-mobile;
   }
-  .router-views{
-    &.active{
-      transform: translateX($menu-width-mobile);
-      }
+  .has-sidebar .router-views{
+    transform: translateX($menu-width-mobile);
   }
 
   aside.main-navigation{
     transform: translateX($menu-width-mobile * -1);
   }
 
-  .main-navigation.click li.active a button.nav-button{
+  .has-sidebar .main-navigation li.active a button.nav-button{
     border-radius: 4px;
   }
 
@@ -40,7 +38,7 @@
     }
   }
 
-  aside.main-navigation.click li.active{
+  .has-sidebar aside.main-navigation li.active{
     transition-duration: 0.3s;
     transform: translateX(0);
 
@@ -56,7 +54,7 @@
     opacity: 1;
   }
 
-  aside.main-navigation.click li button.nav-close {
+  .has-sidebar aside.main-navigation li button.nav-close {
     opacity: 0;
     transition-duration: 0.3s;
     visibility: hidden;

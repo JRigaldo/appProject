@@ -1,24 +1,23 @@
-import { inject } from 'aurelia-framework';
-import {Router} from 'aurelia-router'
-import { EventAggregator } from 'aurelia-event-aggregator';
 import routes from './routes';
-import {CssAnimator} from 'aurelia-animator-css';
-import { NavigationOptions, History } from 'aurelia-history';
+import {inject} from 'aurelia-framework';
+import { EventAggregator } from 'aurelia-event-aggregator';
 
-@inject(EventAggregator, Router)
-export class Shell {
-
-  constructor(ea, router, element){
-    this.ea = ea;
+@inject(EventAggregator)
+export class Shell{
+  constructor(EventAggregator){
+    this.ea = EventAggregator;
     this.isSelected = false;
-    this.router = router;
     this.homepage = false;
   }
-
   configureRouter(config, router) {
     this.router = router;
-    config.title = 'Aurelia';
     config.map(routes);
+  }
+
+  attached(){
+    this.subscription = this.ea.subscribe(
+      'router:navigation:success',
+      this.navigationSuccess.bind(this));
   }
 
   navigationSuccess(event) {
@@ -33,23 +32,6 @@ export class Shell {
     }
   }
 
-
-  attached(){
-    this.subscription = this.ea.subscribe(
-      'router:navigation:success',
-      this.navigationSuccess.bind(this));
-
-    this.subscriber = this.ea.subscribe('backToMenu', backToMenuButton => {
-         this.isSelected = true;
-      });
-
-      // ENLEVE LE LI 'HOME' SI LE ROUTER EST HOME AU REFRESH
-      if (this.router.currentInstruction.config.name === 'home') {
-        this.homepage = true;
-      }
-
-  }
-
   toggleMenu() {
 		this.isSelected = !this.isSelected;
 	}
@@ -57,13 +39,5 @@ export class Shell {
   detached() {
       this.subscription.dispose();
       this.subscriber.dispose();
-  }
-
-  pusher(){
-    if(this.selected === true){
-      this.isSelected = false;
-    }else{
-      this.isSelected = false;
-    }
   }
 }

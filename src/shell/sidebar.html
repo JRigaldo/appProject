@@ -1,19 +1,21 @@
 <template>
+  <aside class="main-navigation">
     <nav>
-      <ul ref="sidebarMenu">
-        <li class="${nav.isActive ? 'active' : ''} ${homepage ? 'link' : ''}" repeat.for="nav of router.navigation">
-          <div class="nav-content">
-            <a href.bind="nav.href">
-              <button class="nav-button">
-                <i class="fa ${nav.settings.iconClass}"></i>
-                <span>${nav.title}</span>
-              </button>
-              <button click.delegate="backToMenu()" class="nav-close">
-                <i class="fa-cross ${nav.settings.iconCross}"></i>
-              </button>
-            </a>
-          </div>
-        </li>
-      </ul>
-    </nav>
+        <ul ref="sidebarMenu">
+          <li class="${nav.isActive ? 'active' : ''} ${homepage ? 'link' : ''}" repeat.for="nav of router.navigation">
+            <div class="nav-content">
+              <a href.bind="nav.href">
+                <button class="nav-button">
+                  <i class="fa ${nav.settings.iconClass}"></i>
+                  <span>${nav.title}</span>
+                </button>
+                <button click.delegate="toggleMenu()" class="nav-close">
+                  <i class="fa-cross ${nav.settings.iconCross}"></i>
+                </button>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+  </aside>
 </template>

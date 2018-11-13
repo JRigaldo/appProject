@@ -1,9 +1,9 @@
 // ACTION
-aside.main-navigation.click{
+.has-sidebar aside.main-navigation{
   transform: translateX(0);
 }
 
-.router-views.active .menu-is-selected{
+.has-sidebar .router-views .menu-is-selected{
   position: relative;
   min-height: 100%;
   &:before{

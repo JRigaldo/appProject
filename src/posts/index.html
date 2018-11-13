@@ -1,0 +1,9 @@
+<template>
+  <section>
+    <nav>
+      <ul repeat.for="post of posts">
+        <li><a route-href="route: post-view; params.bind: {slug: post.slug}">${post.slug}</a></li>
+      </ul>
+    </nav>
+  </section>
+</template>

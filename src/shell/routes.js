@@ -1,9 +1,8 @@
 export default [
   {
-    name: 'home',
     route: ['', 'home'],
-    moduleId: 'home/home',
-    href: '#/',
+    name: 'home',
+    moduleId: 'posts/index',
     nav: true,
     title: 'Home',
     settings: {
@@ -12,38 +11,19 @@ export default [
     }
   },
   {
-    name: 'login',
+    route: 'post/:slug',
+    name: 'post-view',
+    moduleId: 'posts/view',
+    title: 'View Post'
+  },
+  {
     route: 'login',
-    moduleId: 'login/index',
-    href: '#/login',
+    name: 'login',
+    moduleId: 'login/login',
     nav: true,
-    title: 'Log in',
+    title: 'Login',
     settings: {
       iconClass: 'icon-key',
-      iconCross: 'icon-cross'
-    }
-  },
-  {
-    name: 'signin',
-    route: 'signin',
-    moduleId: 'signin/signin',
-    href: '#/signin',
-    nav: true,
-    title: 'Sign in',
-    settings: {
-      iconClass: 'icon-key',
-      iconCross: 'icon-cross'
-    }
-  },
-  {
-    name: 'users',
-    route: 'users',
-    moduleId: 'users/users',
-    href: '#/users',
-    nav: true,
-    title: 'Users',
-    settings: {
-      iconClass: 'icon-user',
       iconCross: 'icon-cross'
     }
   }
