@@ -1,17 +1,6 @@
 <template>
   <header>
     <div class="navbar-menu start">
-      <a click.delegate="toggleMenu()" class="icon">
-        <button class="${isSelected ? 'active' : ''} fa icon-menu"></button>
-      </a>
-      <a class="logo" href="https://bulma.io">
-        <img src="https://bulma.io/images/bulma-logo.png">
-      </a>
-    </div>
-    <div class="navbar-menu end">
-      <a href="" class="icon">
-        <button class="fa icon-cool2"></button>
-      </a>
       <a href="">
         <button class="navbar-button">Sign in</button>
       </a>
@@ -27,6 +16,19 @@
           </svg>
         </button>
       </a> -->
+    </div>
+    <div class="navbar-menu center">
+      <a class="logo" href="https://bulma.io">
+        <img src="https://bulma.io/images/bulma-logo.png">
+      </a>
+    </div>
+    <div class="navbar-menu end">
+      <a href="" class="icon icon-account">
+        <button class="fa icon-cool2"></button>
+      </a>
+      <a click.delegate="toggleMenu()" class="icon">
+        <button class="${isSelected ? 'active' : ''} fa icon-menu"></button>
+      </a>
     </div>
   </header>
 </template>
