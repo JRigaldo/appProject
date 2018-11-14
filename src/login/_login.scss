@@ -1,0 +1,45 @@
+.login{
+  height: 100%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login form{
+  position: relative;
+  max-width: 500px;
+  width: 50%;
+  min-width: 300px;
+  .form-text{
+    margin: 0 30px 0 0;
+  }
+  .control{
+    margin: 30px 0 0 0;
+  }
+}
+
+.fa-envelope{
+  &:before{
+    content: '\ea85';
+    font-family: 'icomoon';
+    font-size: 1em;
+  }
+}
+
+.fa-user{
+  &:before{
+    content: '\e971';
+    font-family: 'icomoon';
+    font-size: 1em;
+  }
+}
+
+.fa-check{
+  &:before{
+    content: '\ea10';
+    font-family: 'icomoon';
+    font-size: 1em;
+  }
+}

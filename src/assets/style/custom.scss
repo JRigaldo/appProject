@@ -32,6 +32,7 @@ $menu-width-desktop: 200px;
 @import "./_nav";
 @import "./_nav-mobile";
 @import "./_nav-desktop";
-@import "./_router-view";
 @import "../../resources/elements/_carousel";
 @import "../../resources/elements/_tags-list-header";
+@import "../../login/_login";
+@import "../../posts/_view";
