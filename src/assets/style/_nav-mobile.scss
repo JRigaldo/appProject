@@ -16,10 +16,11 @@
     &.active{
       transition-duration: 0.3s;
       z-index: 10;
-      transform: translateX($menu-width-mobile);
+      transform: translateX($menu-width-mobile * -1);
     }
 
     a button.nav-button{
+      background-color: $white;
       border-radius: 4px;
     }
 
