@@ -1,23 +1,38 @@
-.view{
+section.view{
+  padding: 0;
+  height: 100%;
   article{
+    line-height: 1.2em;
+    padding: 5px;
     h3{
       display: inline;
       font-weight: 600;
-      font-size: 1.2em;
-      margin-right: 20px;
+      font-size: 1.05em;
+      margin-right: 15px;
     }
     p{
       display: inline;
-    }
-    span.date{
-      display: block;
-      float: left;
+      font-size: 0.9em;
     }
   }
-  &:after{
-    content: '';
-    display: table;
-    clear: both;
+  .relate-tags{
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    line-height: 50px;
+    .date{
+      display: inline-block;
+      font-size: 0.8em;
+      width: 40%;
+      padding-left: 5px;
+      color: $grey;
+    }
+    .main-tag{
+      display: inline-block;
+      width: 60%;
+      margin: 0;
+      float: right;
+    }
   }
 }
 
