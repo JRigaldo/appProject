@@ -68,13 +68,6 @@ section{
 
 // HEADER LAYOUT
 
-// header .navbar-menu.start{
-//   float: left;
-// }
-// header .navbar-menu.end{
-//   float: right;
-// }
-
 header .start{
   grid-area: start;
   justify-content: flex-start;

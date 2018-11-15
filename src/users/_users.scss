@@ -1,0 +1,44 @@
+.users{
+  .section-container{
+    background-color: $white-bis;
+  }
+  .section-contaier-center{
+    height: 100%;
+    width: 100%;
+  }
+  ul{
+    li{
+      a{
+        position: relative;
+        height: 3em;
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: $white;
+        i.icon-grin2{
+          margin: 0 20px;
+          &:before{
+            content: '\e9ea';
+          }
+        }
+        h4{
+        }
+        i.icon-play3{
+          position: absolute;
+          right: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          &:before{
+            content: '\ea1c';
+          }
+        }
+      }
+    }
+  }
+}
