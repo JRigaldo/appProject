@@ -1,13 +1,28 @@
 import $ from 'jquery';
 import Masonry from 'masonry-layout';
+import {inject} from 'aurelia-framework';
+import {PostService} from '../../common/services/post-service';
 
+@inject(PostService)
 export class MasonryGrid{
 
-  constructor(){
+  constructor(PostService){
+    this.postService = PostService;
   }
 
   attached(){
-    this.masonry();
+
+    setTimeout(() => {
+		    this.masonry(); 
+  	}, 1000);
+    this.postService.allPostPreviews().then(data => {
+      if(data.errors){
+        console.log(this.errors);
+      }else{
+        this.posts = data.posts;
+        console.log(this.posts);
+      }
+    })
   }
 
   masonry() {
@@ -17,10 +32,10 @@ export class MasonryGrid{
       isFitWidth: true,
       gutter: 2,
       columnWidth: 180
-    })
+    });
     msnry.once('layoutComplete', () => {
       grid.classList.add('load')
-    })
+    });
 
     msnry.layout()
   }
