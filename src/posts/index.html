@@ -1,6 +1,8 @@
 <template>
   <require from="../resources/elements/masonry-grid"></require>
+  <require from="../resources/elements/tags-list-header"></require>
   <section class="posts-index">
-    <masonry-grid></masonry-grid>
+    <!-- Va prendre chaque posts -->
+    <masonry-grid posts.bind="posts"></masonry-grid>  
   </section>
 </template>

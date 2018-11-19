@@ -1,28 +1,14 @@
 import $ from 'jquery';
 import Masonry from 'masonry-layout';
-import {inject} from 'aurelia-framework';
-import {PostService} from '../../common/services/post-service';
+import {bindable} from 'aurelia-framework';
 
-@inject(PostService)
 export class MasonryGrid{
-
-  constructor(PostService){
-    this.postService = PostService;
-  }
+  @bindable posts;
 
   attached(){
-
     setTimeout(() => {
-		    this.masonry(); 
+		    this.masonry();
   	}, 1000);
-    this.postService.allPostPreviews().then(data => {
-      if(data.errors){
-        console.log(this.errors);
-      }else{
-        this.posts = data.posts;
-        console.log(this.posts);
-      }
-    })
   }
 
   masonry() {

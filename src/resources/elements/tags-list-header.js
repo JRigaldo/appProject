@@ -1,4 +1,7 @@
+import {bindable} from 'aurelia-framework';
+
 export class TagsListHeader{
+  @bindable post;
 
   // constructor(options = {}){
   //   this.options = Object.assign({}, {

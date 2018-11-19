@@ -1,8 +1,9 @@
 <template>
   <div class="main-grid">
     <div class="grid">
-      <div class="grid-item" repeat.for="post of posts"></div>
+      <a route-href="route: post-view; params.bind: {slug: post.slug}" class="grid-item" repeat.for="post of posts">
+        ${post.title}
+      </a>
     </div>
   </div>
-
 </template>
