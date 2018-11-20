@@ -13,5 +13,16 @@ export class Index{
     }).catch(error => {
       this.error = error.message;
     });
+    this.postService.allTags().then(data => {
+      this.tags = data.tags;
+      console.log(this.tags);
+    }).catch(error => {
+      this.error = error.message;
+    });
+    this.postService.allArchives().then(data => {
+      this.archives = data.archives;
+    }).catch(error => {
+      this.error = error.message;
+    })
   }
 }

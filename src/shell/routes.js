@@ -17,6 +17,18 @@ export default [
     title: 'View Post'
   },
   {
+    route: 'tag/:tag',
+    name: 'tag-view',
+    moduleId: 'posts/tag-view',
+    title: 'View Post by Tag'
+  },
+  {
+    route: 'archive/:archive',
+    name: 'archive-view',
+    moduleId: 'posts/archives-view',
+    title: 'View Post by Archive'
+  },
+  {
     route: 'login',
     name: 'login',
     moduleId: 'login/login',

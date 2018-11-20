@@ -1,7 +1,15 @@
 <template>
   <require from="../resources/elements/masonry-grid"></require>
   <section class="posts-index">
-    <!-- Va prendre chaque posts -->
+    <!-- Tags -->
+    <div class="relate-tags">
+      <div class="main-tag">
+        <div class="tags" ref="tagList">
+          <a route-href="route: tag-view; params.bind: {tag : tag}" repeat.for="tag of tags"><button class="tag is-small">${tag}</button></a>
+        </div>
+      </div>
+    </div>
+    <!-- masonry -->
     <masonry-grid posts.bind="posts"></masonry-grid>
   </section>
 </template>

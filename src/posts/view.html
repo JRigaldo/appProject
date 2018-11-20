@@ -12,10 +12,12 @@
   </article>
   <section class="view" if.bind="!error">
     <carousel></carousel>
+    <!-- Description -->
     <article>
       <h3>${post.author}</h3>
       <p>${post.body}</p>
     </article>
+    <!-- Tags -->
     <div class="relate-tags">
       <span class="date">${post.createdAt | dateFormat }</span>
       <div class="main-tag">
