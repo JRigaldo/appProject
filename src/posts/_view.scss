@@ -16,28 +16,23 @@ section.view{
     }
   }
   .relate-tags{
-    display: block;
-    width: 100%;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
     overflow: hidden;
-    line-height: 50px;
+    margin: 20px 0;
     .date{
       display: inline-block;
       font-size: 0.8em;
-      width: 40%;
       padding-left: 5px;
       color: $grey;
+      min-width: 150px;
     }
     .main-tag{
       display: inline-block;
-      width: 60%;
       margin: 0;
-      float: right;
     }
-  }
-}
-
-@media only screen and (max-width: 768px){
-  .main-tag{
-    float: left;
   }
 }

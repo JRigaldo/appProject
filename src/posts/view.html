@@ -1,6 +1,6 @@
 <template>
   <require from="../resources/elements/carousel"></require>
-  <require from="../resources/elements/tags-list-header"></require>
+  <require from="../resources/value-converters/date-format"></require>
   <article class="message is-danger" if.bind="error">
     <div class="message-header">
       <p>Danger</p>
@@ -13,12 +13,16 @@
   <section class="view" if.bind="!error">
     <carousel></carousel>
     <article>
-      <h3>${post.title}</h3>
+      <h3>${post.author}</h3>
       <p>${post.body}</p>
     </article>
     <div class="relate-tags">
-      <span class="date">${post.createdAt}</span>
-      <tags-list-header post.bind="post"></tags-list-header>
+      <span class="date">${post.createdAt | dateFormat }</span>
+      <div class="main-tag">
+        <div class="tags" ref="tagList">
+          <button class="tag is-small" repeat.for="tag of post.tags">${tag}</button>
+        </div>
+      </div>
     </div>
   </section>
 

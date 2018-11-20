@@ -16,6 +16,7 @@
     "jquery": "^3.3.1",
     "jquery-bridget": "^2.0.1",
     "masonry-layout": "^4.2.2",
+    "moment": "^2.22.2",
     "requirejs": "^2.3.5",
     "slick-carousel": "^1.8.1",
     "text": "github:requirejs/text#latest"
