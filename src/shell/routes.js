@@ -31,9 +31,9 @@ export default [
   {
     route: 'login',
     name: 'login',
-    moduleId: 'login/login',
+    moduleId: 'auth/login',
     nav: true,
-    title: 'Login',
+    title: 'Log In',
     settings: {
       iconClass: 'icon-key',
       iconCross: 'icon-cross'

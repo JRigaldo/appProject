@@ -3,7 +3,7 @@
   <section>
     <div class="section-container">
       <div class="section-contaier-center">
-        <form action="">
+        <form action="" click.trigger="login()">
           <div class="form-text"><Label>Enter your username and<br>password to login</Label></div>
 
           <div class="control has-icons-left has-icons-right">
@@ -17,7 +17,7 @@
           </div>
 
           <div class="control has-icons-left has-icons-right">
-            <input class="input" type="email" placeholder="Email">
+            <input class="input" type="text" placeholder="Password" value.bind="name">
             <span class="icon is-small is-left">
               <i class="fas fa-user"></i>
             </span>
