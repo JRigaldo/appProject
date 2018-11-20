@@ -22,7 +22,7 @@
       <span class="date">${post.createdAt | dateFormat }</span>
       <div class="main-tag">
         <div class="tags" ref="tagList">
-          <button class="tag is-small" repeat.for="tag of post.tags">${tag}</button>
+          <a route-href="route: tag-view; params.bind: {tag: tag}" repeat.for="tag of post.tags"><button class="tag is-small">${tag}</button></a>
         </div>
       </div>
     </div>
