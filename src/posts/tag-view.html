@@ -1,4 +1,10 @@
 <template>
   <require from="../resources/elements/masonry-grid"></require>
+  <article class="message is-dark">
+    <div class="message-header">
+      <p>${tag}</p>
+      <a route-href="route: home"><button class="delete" aria-label="delete"></button></a>
+    </div>
+  </article>
   <masonry-grid posts.bind="posts"></masonry-grid>
 </template>
