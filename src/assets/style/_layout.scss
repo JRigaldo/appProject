@@ -108,16 +108,11 @@ header .navbar-menu{
     height: 100%;
     padding: 0;
     margin: 0 5px;
-    width: 80px;
+    width: 45px;
   }
 
   a.logo{
     width: 90px;
-  }
-
-  a.icon{
-    height: auto;
-    width: 50px;
   }
 
   button.navbar-button{
@@ -127,45 +122,6 @@ header .navbar-menu{
     max-height: 50px;
     height: 80%;
   }
-
-  button.fa{
-    width: 60px;
-    &:before{
-      font-family: 'icomoon';
-      font-size: 2em;
-      color: $black-ter
-    }
-  }
-
-  button.icon-cool2{
-    &:before{
-      content: '\e9eb';
-    }
-  }
-
-  button.icon-menu{
-    &:before{
-      content: '\e9bd';
-    }
-  }
-
-  button.icon-main-menu{
-    width: 60px;
-    svg{
-      height: 20px;
-      fill: $black-ter;
-    }
-  }
-}
-
-header .navbar-menu a.icon.icon-account{
-  display: none;
-}
-
-header .icon-moon2{
-  content: '\e9eb';
-  font-family: "icomoon";
-  speak: none;
 }
 
 button{
@@ -205,7 +161,8 @@ header{
 section{
   position: relative;
   width: 100%;
-  height: calc(100% - 3em);
+  // height: calc(100% - 3em);
+  height: 100%;
   padding: 5px;
   background-color: $white-bis;
   .section-container{

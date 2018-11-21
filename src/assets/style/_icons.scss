@@ -1,0 +1,99 @@
+.icons{
+  display: block;
+  width: 30px;
+}
+
+header .icon-moon2{
+  content: '\e9eb';
+  font-family: "icomoon";
+  speak: none;
+}
+
+header .navbar-menu {
+  button.fa{
+    width: 60px;
+    &:before{
+      font-family: 'icomoon';
+      font-size: 2em;
+      color: $black-ter
+    }
+  }
+
+  button.icon-cool2{
+    &:before{
+      content: '\e9eb';
+    }
+  }
+
+  // button.icon-menu{
+  //   &:before{
+  //     content: '\e9bd';
+  //   }
+  // }
+
+  button.icon-main-menu{
+    width: 60px;
+    svg{
+      height: 20px;
+      fill: $black-ter;
+    }
+  }
+}
+
+header .navbar-menu a.icon.icon-account{
+  &.guestUser{
+    display: none;
+  }
+  &.activeUser{
+    display: block;
+  }
+}
+
+// // HEADER LAYOUT
+// header .navbar-menu.end button.navbar-button{
+//   background-color: $primary;
+//   color: $white;
+//   &:hover{
+//     background-color: none;
+//   }
+// }
+
+// HEADER LAYOUT
+header .navbar-menu button.navbar-button{
+  background-color: none;
+  color: $grey-dark;
+  &:hover{
+    background-color: $grey-lighter;
+  }
+}
+
+.main-navigation li {
+    a button.nav-button{
+      background-color: $white;
+      border-radius: 4px;
+    }
+
+    button.nav-close{
+      position: absolute;
+      right: 0;
+      top: 1px;
+      bottom: 0;
+      z-index: 1;
+      // display: none;
+      color: inherit;
+      width: 15%;
+      height: calc(100% - 1px);
+    }
+  }
+
+// Animation de la croix sur le "li"
+aside.main-navigation li button.nav-close{
+  transition-duration: 0.5s;
+  opacity: 1;
+}
+
+.has-sidebar aside.main-navigation li button.nav-close {
+  opacity: 0;
+  transition-duration: 0.3s;
+  visibility: hidden;
+}

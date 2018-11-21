@@ -18,23 +18,6 @@
       z-index: 10;
       transform: translateX($menu-width-mobile * -1);
     }
-
-    a button.nav-button{
-      background-color: $white;
-      border-radius: 4px;
-    }
-
-    button.nav-close{
-      position: absolute;
-      right: 0;
-      top: 1px;
-      bottom: 0;
-      z-index: 1;
-      // display: none;
-      color: inherit;
-      width: 15%;
-      height: calc(100% - 1px);
-    }
   }
 
   .has-sidebar aside.main-navigation li.active{
@@ -45,18 +28,6 @@
 
   aside.main-navigation ul li.active.link{
     transform: translateX(0);
-  }
-
-  // Animation de la croix sur le "li"
-  aside.main-navigation li button.nav-close{
-    transition-duration: 0.5s;
-    opacity: 1;
-  }
-
-  .has-sidebar aside.main-navigation li button.nav-close {
-    opacity: 0;
-    transition-duration: 0.3s;
-    visibility: hidden;
   }
 
 }

@@ -20,14 +20,4 @@
   //   grid-area: router;
   // }
 
-
-
-  // HEADER LAYOUT
-  header .navbar-menu button.navbar-button{
-    background-color: none;
-    color: $grey-dark;
-    &:hover{
-      background-color: $grey-lighter;
-    }
-  }
 }

@@ -1,12 +1,4 @@
 @media only screen and (max-width: 768px){
-  // HEADER LAYOUT
-  header .navbar-menu.end button.navbar-button{
-    background-color: $primary;
-    color: $white;
-    &:hover{
-      background-color: none;
-    }
-  }
 
   aside.main-navigation{
     width: $menu-width-mobile;

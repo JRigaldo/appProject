@@ -14,10 +14,30 @@
   }
 }
 
+.fa-lock{
+  &:before{
+    content: '\e98f';
+    font-family: 'icomoon';
+    font-size: 1em;
+  }
+}
+
 .fa-check{
   &:before{
     content: '\ea10';
     font-family: 'icomoon';
     font-size: 1em;
   }
+}
+
+.fa-blocked{
+  &:before{
+    content: '\ea0e';
+    font-family: 'icomoon';
+    font-size: 1em;
+  }
+}
+
+.fa-blocked{
+  color: red;
 }

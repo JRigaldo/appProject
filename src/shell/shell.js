@@ -1,10 +1,12 @@
 import routes from './routes';
 import {inject} from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
+import {AuthService} from '../common/services/auth-service';
 
-@inject(EventAggregator)
+@inject(EventAggregator, AuthService)
 export class Shell{
-  constructor(EventAggregator){
+  constructor(EventAggregator, AuthService){
+    this.authService = AuthService;
     this.ea = EventAggregator;
     this.isSelected = false;
     this.homepage = false;
@@ -15,11 +17,18 @@ export class Shell{
   }
 
   attached(){
-    this.subscription = this.ea.subscribe(
+
+    // this.currentUser = this.authService.currentUser;
+
+    let subscribecurrentUser = this.ea.subscribe('user', user => {
+      this.currentUser = this.authservice.currentUser;
+    })
+
+    this.subscriptionNavigationSuccess = this.ea.subscribe(
       'router:navigation:success',
       this.navigationSuccess.bind(this));
 
-    this.subscriber = this.ea.subscribe('backToMenu', backToMenuButton => {
+    this.subscriberBackToMenu = this.ea.subscribe('backToMenu', backToMenuButton => {
        this.isSelected = true;
     });
 
@@ -42,11 +51,17 @@ export class Shell{
   }
 
   toggleMenu() {
-		this.isSelected = !this.isSelected;
+    // if(this.currentUser = this.authService.currentUser){
+    //   this.isSelected = !this.isSelected;
+    // }else{
+    //   this.router.navigateToRoute('login');
+    // }
+    this.isSelected = !this.isSelected;
 	}
 
   detached() {
-      this.subscription.dispose();
-      this.subscriber.dispose();
+      this.subscriptionNavigationSuccess.dispose();
+      this.subscriberBackToMenu.dispose();
+      this.subscribecurrentUser.dispose();
   }
 }
