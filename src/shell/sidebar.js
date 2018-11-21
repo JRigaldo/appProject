@@ -46,8 +46,4 @@ export class SideBar{
     this.subscriber = this.ea.publish('backToMenu', backToMenuButton);
   }
 
-  detached(){
-    this.clickSubscription.dispose();
-    this.subscriber.dispose();
-  }
 }

@@ -73,15 +73,21 @@
     width: calc(100% - 45px);
   }
 
-  a button:last-child{
+  &.aactive a button:first-child{
+    width: 100%;
+  }
+
+  a button:first-child svg{
+    margin: 0 10px;
+  }
+
+  a button.nav-close{
+    text-align: center;
     width: 45px;
   }
 
   a button svg, a button span {
     display: inline-block;
-  }
-  a button svg{
-    margin: 0 10px;
   }
 
   a button span{
@@ -89,81 +95,18 @@
     top: -10px;
     font-size: 1.2em;
   }
+}
 
+// Animation de la croix sur le "li"
+aside.main-navigation li button.nav-close{
+  transition-duration: 0.5s;
+  opacity: 1;
+}
 
-  // // &.active a button.nav-button{
-  // //   border-radius: 0;
-  // // }
-  // //
-  // // a button.nav-button{
-  // //   background-color: $white;
-  // //   width: 100%;
-  // //   height: 100%;
-  // //   text-align: left;
-  // // }
-  //
-  // // .nav-content{
-  // //   position: relative;
-  // //   height: 100%;
-  // //   width: 100%;
-  // //   display: -webkit-flex;
-  // //   display: -ms-flex;
-  // //   display: flex;
-  // //   align-items: center;
-  // //   justify-content: flex-start;
-  // // }
-  //
-  // // a{
-  // //   position: relative;
-  // //   display: -webkit-flex;
-  // //   display: -ms-flex;
-  // //   display: flex;
-  // //   align-items: center;
-  // //   justify-content: flex-start;
-  // //   padding: 1px;
-  // //   width: 100%;
-  // //   height: $navbar-item-height;
-  // //
-  // //   letter-spacing: 1px;
-  // //   border-radius: 3px;
-  // // }
-  //
-  // a button.nav-button{
-  //   background-color: $white-bis;
-  //   transition-duration: 0.3s;
-  //   span{
-  //     font-size: 1.17em;
-  //     color: $grey;
-  //     font-weight: 500;
-  //   }
-  //   i{
-  //     position: relative;
-  //     top: 3px;
-  //     margin: 0 20px;
-  //     color: $grey;
-  //     font-size: 1.8em;
-  //   }
-  // }
-  // &.active a button.nav-button{
-  //   background-color: $grey-lighter;
-  //   span{
-  //     color: $grey-darker;
-  //     font-weight: 700;
-  //   }
-  //   i{
-  //     color: $primary;
-  //   }
-  //   &:hover{
-  //     background-color: darken($grey-lighter, 5%);
-  //   }
-  // }
-  //
-  // & a button.nav-button{
-  //   &:hover{
-  //     background-color: darken($white-ter, 5%);
-  //     transition-duration: 0.3s;
-  //   }
-  // }
+.has-sidebar aside.main-navigation li button.nav-close {
+  opacity: 0;
+  transition-duration: 0.3s;
+  visibility: hidden;
 }
 
 .main-navigation li:nth-child(1) {

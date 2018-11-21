@@ -18,10 +18,11 @@ export class Shell{
 
   attached(){
 
-    // this.currentUser = this.authService.currentUser;
+    this.currentUser = this.authService.currentUser;
 
     let subscribecurrentUser = this.ea.subscribe('user', user => {
-      this.currentUser = this.authservice.currentUser;
+      this.currentUser = name;
+      // this.currentUser = this.authservice.currentUser;
     })
 
     this.subscriptionNavigationSuccess = this.ea.subscribe(
@@ -51,13 +52,23 @@ export class Shell{
   }
 
   toggleMenu() {
-    // if(this.currentUser = this.authService.currentUser){
-    //   this.isSelected = !this.isSelected;
-    // }else{
-    //   this.router.navigateToRoute('login');
-    // }
-    this.isSelected = !this.isSelected;
+    if(this.currentUser === null){
+      this.router.navigateToRoute('login');
+    }else{
+      this.isSelected = !this.isSelected;
+    }
 	}
+
+  logout(){
+    this.authService.logout().then(data => {
+      console.log(data.success);
+      this.router.navigateToRoute('home');
+      this.isSelected = false;
+      this.ea.publish('user', null);
+    }).catch(error => {
+      this.error = error.message;
+    })
+  }
 
   detached() {
       this.subscriptionNavigationSuccess.dispose();
