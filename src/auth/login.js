@@ -21,7 +21,6 @@ export class Login{
     this.authservice.login(this.name).then(data => {
       this.ea.publish('user', data.name);
       this.router.navigateToRoute('home');
-      console.log(data.user);
     }).catch(error => {
       this.error = error.message;
     })

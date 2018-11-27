@@ -20,9 +20,8 @@ export class Shell{
 
     this.currentUser = this.authService.currentUser;
 
-    let subscribecurrentUser = this.ea.subscribe('user', user => {
-      this.currentUser = name;
-      // this.currentUser = this.authservice.currentUser;
+    this.subscriptionUser = this.ea.subscribe('user', user => {
+      this.currentUser = this.authService.currentUser;
     })
 
     this.subscriptionNavigationSuccess = this.ea.subscribe(
@@ -73,6 +72,6 @@ export class Shell{
   detached() {
       this.subscriptionNavigationSuccess.dispose();
       this.subscriberBackToMenu.dispose();
-      this.subscribecurrentUser.dispose();
+      this.subscriptionUser.dispose();
   }
 }
