@@ -1,15 +1,9 @@
 <template>
   <require from="../resources/elements/carousel"></require>
   <require from="../resources/value-converters/date-format"></require>
-  <article class="message is-danger" if.bind="error">
-    <div class="message-header">
-      <p>Danger</p>
-      <a route-href="route: home"><button class="delete" aria-label="delete"></button></a>
-    </div>
-    <div class="message-body">
-      ${error}
-    </div>
-  </article>
+  <require from="../resources/elements/message-header.html"></require>
+  <message-header error.bind="error"></message-header>
+
   <section class="view" if.bind="!error">
     <carousel></carousel>
     <!-- Description -->
