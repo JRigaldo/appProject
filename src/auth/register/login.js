@@ -1,6 +1,6 @@
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
-import {AuthService} from '../common/services/auth-service';
+import {AuthService} from '../../common/services/auth-service';
 import { EventAggregator } from 'aurelia-event-aggregator';
 
 @inject(AuthService, Router, EventAggregator)

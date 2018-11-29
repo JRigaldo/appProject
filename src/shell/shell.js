@@ -52,7 +52,7 @@ export class Shell{
 
   toggleMenu() {
     if(this.currentUser === null){
-      this.router.navigateToRoute('login');
+      this.router.navigateToRoute('register');
     }else{
       this.isSelected = !this.isSelected;
     }

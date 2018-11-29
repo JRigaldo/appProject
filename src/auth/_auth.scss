@@ -1,0 +1,110 @@
+.signup-container.active{
+  display: block;
+}
+
+
+.signup-container{
+  display: none;
+}
+
+.login-container{
+  display: none;
+}
+
+.login-container.active{
+  display: block;
+}
+
+.signup{
+  width: 100%;
+  padding: 0;
+  margin: 30px 0;
+}
+
+.fa-envelope{
+  &:before{
+    content: '\ea85';
+    font-family: 'icomoon';
+    font-size: 1em;
+  }
+}
+
+.fa-user{
+  &:before{
+    content: '\e971';
+    font-family: 'icomoon';
+    font-size: 1em;
+  }
+}
+
+.fa-lock{
+  &:before{
+    content: '\e98f';
+    font-family: 'icomoon';
+    font-size: 1em;
+  }
+}
+
+.fa-check{
+  &:before{
+    content: '\ea10';
+    font-family: 'icomoon';
+    font-size: 1em;
+  }
+}
+
+.fa-blocked{
+  &:before{
+    content: '\ea0e';
+    font-family: 'icomoon';
+    font-size: 1em;
+  }
+}
+
+.fa-blocked{
+  color: red;
+}
+
+.fa-envelope{
+  &:before{
+    content: '\ea85';
+    font-family: 'icomoon';
+    font-size: 1em;
+  }
+}
+
+.fa-user{
+  &:before{
+    content: '\e971';
+    font-family: 'icomoon';
+    font-size: 1em;
+  }
+}
+
+.fa-lock{
+  &:before{
+    content: '\e98f';
+    font-family: 'icomoon';
+    font-size: 1em;
+  }
+}
+
+.fa-check{
+  &:before{
+    content: '\ea10';
+    font-family: 'icomoon';
+    font-size: 1em;
+  }
+}
+
+.fa-blocked{
+  &:before{
+    content: '\ea0e';
+    font-family: 'icomoon';
+    font-size: 1em;
+  }
+}
+
+.fa-blocked{
+  color: red;
+}

@@ -29,11 +29,11 @@ export default [
     title: 'View Post by Archive'
   },
   {
-    route: 'login',
-    name: 'login',
-    moduleId: 'auth/login',
+    route: 'register',
+    name: 'register',
+    moduleId: 'auth/index',
     nav: true,
-    title: 'Log In',
+    title: 'Register',
     settings: {
       iconClass: 'icon-key',
       iconCross: 'icon-cross'
