@@ -60,5 +60,16 @@ export default [
       iconClass: 'icon-cool2',
       iconCross: 'icon-cross'
     }
+  },
+  {
+    route: 'create',
+    name: 'create',
+    moduleId: 'posts/create',
+    nav: true,
+    title: 'Create',
+    settings: {
+      iconClass: 'icon-cool2',
+      iconCross: 'icon-cross'
+    }
   }
 ];

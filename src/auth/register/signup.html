@@ -1,4 +1,6 @@
 <template>
+  <require from="../../resources/elements/message-header.html"></require>
+  <message-header error.bind="error""></message-header>
   <form action="" submit.delegate="signup()" class="signup-container">
     <div class="form-text"><Label>Enter your username and<br>password to login</Label></div>
 
@@ -10,6 +12,9 @@
       <span class="icon is-small is-right">
         <i class="fas ${error ? 'fa-blocked' : ''}"></i>
       </span>
+    </div>
+    <div class="control">
+      <button class="button is-primary" type="submit">Submit</button>
     </div>
 
   </form>

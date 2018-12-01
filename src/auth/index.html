@@ -2,7 +2,7 @@
   <section>
     <div class="section-container">
       <div class="section-contaier-center">
-        <div class="tabs is-toggle">
+        <!-- <div class="tabs is-toggle">
           <ul>
             <li class="${nav.isActive ? 'is-active' : ''}" repeat.for="nav of router.navigation">
               <a href.bind="nav.href">
@@ -10,6 +10,11 @@
                 <span>${nav.title}</span>
               </a>
             </li>
+          </ul>
+        </div> -->
+        <div class="tabs is-centered">
+          <ul>
+            <li class="${nav.isActive ? 'is-active' : ''}" repeat.for="nav of router.navigation"><a href.bind="nav.href">${nav.title}</a></li>
           </ul>
         </div>
         <router-view></router-view>

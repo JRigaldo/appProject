@@ -165,14 +165,25 @@ section{
   height: 100%;
   padding: 5px;
   background-color: $white-bis;
+  // Centrer horizontal vertical
+  // .section-container{
+  //   display: -webkit-flex;
+  //   display: -ms-flex;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   height: 100%;
+  //   border-radius: 5px;
+  //   background-color: $white;
+  // }
+  //Centrer horizontal
   .section-container{
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100%;
-    border-radius: 5px;
     background-color: $white;
+    height: 100%;
+    padding-top: 2em;
   }
 }
