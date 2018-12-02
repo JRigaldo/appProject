@@ -62,11 +62,11 @@ export default [
     }
   },
   {
-    route: 'create',
-    name: 'create',
+    route: 'create-post',
+    name: 'create-post',
     moduleId: 'posts/create',
     nav: true,
-    title: 'Create',
+    title: 'Create Post',
     settings: {
       iconClass: 'icon-cool2',
       iconCross: 'icon-cross'

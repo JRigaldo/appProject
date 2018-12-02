@@ -125,6 +125,7 @@ header .navbar-menu{
 
 }
 
+// HEADER NAVABR-MENU ICONS
 .navbar-menu.start svg path{
   display: none;
 }
@@ -137,7 +138,15 @@ header .navbar-menu{
 
 .navbar-menu.start svg.lock{
   path:nth-child(2){
+    display: none;
+  }
+}
+
+.navbar-menu.start a.is-active svg.lock{
+  path:nth-child(2){
     display: block;
+    transition-duration: 0.3s;
+    fill: $primary;
   }
 }
 

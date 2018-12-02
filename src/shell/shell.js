@@ -77,10 +77,11 @@ export class Shell{
       this.subscriptionUser.dispose();
   }
 
+
   svgToggle(){
-    this.router.navigateToRoute('create');
+    this.router.navigateToRoute('create-post');
     this.createPost = false;
-    if(this.router.currentInstruction.config.name === 'create'){
+    if(this.router.currentInstruction.config.name === 'create-post'){
       this.router.navigateToRoute('home');
       this.createPost = true;
     }

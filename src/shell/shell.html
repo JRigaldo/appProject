@@ -3,7 +3,7 @@
   <div class="${isSelected ? 'has-sidebar' : ''}">
     <compose view="./header.html"></compose>
     <compose view-model="./sidebar"></compose>
-    <!-- <h2>${currentUser || 'Guest'}</h2> -->
+    <h2>${currentUser || 'Guest'}</h2>
     <div class="router-views">
       <div class="menu-is-selected">
         <router-view></router-view>

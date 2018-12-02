@@ -38,21 +38,21 @@ section.view{
 }
 
 section.create{
-  input, textarea{
-    background-color: inherit;
-    border: none;
-    box-shadow: none;
-  }
-  ::-webkit-input-placeholder {
-    color: $grey-darker;
-  }
-  ::-moz-placeholder {
-    color: $grey-darker;
-  }
-  :-ms-input-placeholder {
-    color: $grey-darker;
-  }
-  :-moz-placeholder {
-    color: $grey-darker;
-  }
+  // input, textarea{
+  //   background-color: inherit;
+  //   border: none;
+  //   box-shadow: none;
+  // }
+  // ::-webkit-input-placeholder {
+  //   color: $grey-darker;
+  // }
+  // ::-moz-placeholder {
+  //   color: $grey-darker;
+  // }
+  // :-ms-input-placeholder {
+  //   color: $grey-darker;
+  // }
+  // :-moz-placeholder {
+  //   color: $grey-darker;
+  // }
 }
