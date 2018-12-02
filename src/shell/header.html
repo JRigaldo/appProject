@@ -1,10 +1,11 @@
 <template>
   <header class="main-header">
     <div class="navbar-menu start">
-      <a route-href="create" if.bind="currentUser">
+      <a href="#" click.delegate="svgToggle()" if.bind="currentUser">
         <button>
-          <svg class="icons" viewBox="0 0 24 24">
+          <svg class="icons ${createPost ? 'pencil' : 'lock'}" viewBox="0 0 24 24">
               <path d="M20.71,4.04C21.1,3.65 21.1,3 20.71,2.63L18.37,0.29C18,-0.1 17.35,-0.1 16.96,0.29L15,2.25L18.75,6M17.75,7L14,3.25L4,13.25V17H7.75L17.75,7Z" />
+              <path d="M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V10A2,2 0 0,1 6,8H15V6A3,3 0 0,0 12,3A3,3 0 0,0 9,6H7A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,17A2,2 0 0,0 14,15A2,2 0 0,0 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17Z"/>
           </svg>
         </button>
       </a>
@@ -22,6 +23,10 @@
           </svg>
         </button>
       </a>
+      <!-- Key -->
+      <!-- <svg viewBox="0 0 24 24">
+          <path d="M22,18V22H18V19H15V16H12L9.74,13.74C9.19,13.91 8.61,14 8,14A6,6 0 0,1 2,8A6,6 0 0,1 8,2A6,6 0 0,1 14,8C14,8.61 13.91,9.19 13.74,9.74L22,18M7,5A2,2 0 0,0 5,7A2,2 0 0,0 7,9A2,2 0 0,0 9,7A2,2 0 0,0 7,5Z"/>
+      </svg> -->
     </div>
   </header>
 </template>

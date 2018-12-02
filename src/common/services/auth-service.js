@@ -3,7 +3,7 @@ export class AuthService {
 	constructor() {
 		this.delay = 100;
 		this.currentUser = null;
-		this.users = ['Nick Shallee', 'Jane Doe'];
+		this.users = ['Nick Shallee', 'Jane Doe', 'e'];
 	}
 
 	login(name) {

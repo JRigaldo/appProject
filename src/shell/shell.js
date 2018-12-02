@@ -10,6 +10,7 @@ export class Shell{
     this.ea = EventAggregator;
     this.isSelected = false;
     this.homepage = false;
+    this.createPost = true;
   }
   configureRouter(config, router) {
     this.router = router;
@@ -36,6 +37,7 @@ export class Shell{
     if (this.router.currentInstruction.config.name === 'home') {
       this.homepage = true;
     }
+
   }
 
   navigationSuccess(event) {
@@ -73,5 +75,14 @@ export class Shell{
       this.subscriptionNavigationSuccess.dispose();
       this.subscriberBackToMenu.dispose();
       this.subscriptionUser.dispose();
+  }
+
+  svgToggle(){
+    this.router.navigateToRoute('create');
+    this.createPost = false;
+    if(this.router.currentInstruction.config.name === 'create'){
+      this.router.navigateToRoute('home');
+      this.createPost = true;
+    }
   }
 }

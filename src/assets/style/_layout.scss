@@ -115,12 +115,29 @@ header .navbar-menu{
     width: 90px;
   }
 
-  button.navbar-button{
-    font-size: 0.9em;
-    border-radius: 5px;
-    letter-spacing: 1px;
-    max-height: 50px;
-    height: 80%;
+  // button.navbar-button{
+  //   font-size: 0.9em;
+  //   border-radius: 5px;
+  //   letter-spacing: 1px;
+  //   max-height: 50px;
+  //   height: 80%;
+  // }
+
+}
+
+.navbar-menu.start svg path{
+  display: none;
+}
+
+.navbar-menu.start svg.pencil{
+  path:nth-child(1){
+    display: block;
+  }
+}
+
+.navbar-menu.start svg.lock{
+  path:nth-child(2){
+    display: block;
   }
 }
 
