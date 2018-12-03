@@ -17,6 +17,12 @@ export default [
     title: 'View Post'
   },
   {
+    route: 'post/:slug/edit',
+    name: 'post-edit',
+    moduleId: 'posts/edit',
+    title: 'Edit Post'
+  },
+  {
     route: 'tag/:tag',
     name: 'tag-view',
     moduleId: 'posts/tag-view',

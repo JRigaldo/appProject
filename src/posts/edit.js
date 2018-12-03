@@ -4,7 +4,7 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 import {PostService} from '../common/services/post-service';
 
 @inject(PostService, Router, EventAggregator)
-export class Create{
+export class Edit{
 
   constructor(PostService, Router, EventAggregator){
     this.router = Router;
@@ -12,19 +12,17 @@ export class Create{
     this.ea = EventAggregator;
   }
 
-  attached(){
-    this.post = {
-      title: '',
-      body: '',
-      tags: []
-    };
+  activate(params){
+    this.postService.find(params.slug).then(data => {
+      this.post = data.post;
+    }).catch(error => {
+      console.log(error);
+    });
+    this.title = 'Edit';
+  }
 
-    this.title = 'Create';
-
-  };
-
-  createPost(){
-    this.postService.create(this.post).then(data => {
+  editPost(){
+    this.postService.update(this.post).then(data => {
       this.ea.publish('post-updated', Date());
       this.router.navigateToRoute('post-view', {slug: data.slug});
     }).catch(error => {

@@ -1,35 +1,4 @@
 <template>
-  <section class="create">
-    <form submit.delegate="createPost()">
-      <div class="field">
-        <label class="label">title</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="title" value.bind="post.title">
-        </div>
-      </div>
-      <div class="field">
-        <label class="label">Body</label>
-        <div class="control">
-          <textarea class="textarea" placeholder="body" value.bind="post.body"></textarea>
-        </div>
-      </div>
-      <label class="checkbox" repeat.for="tag of allTags">
-        <input type="checkbox" checked.bind="post.tags" value.bind="tag">
-        ${tag}
-      </label>
-
-      <div class="field">
-        <label class="label">Add tag</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Add Tag" value.bind="newTag">
-          <button click.delegate="addTag()">Add Tag +</button>
-        </div>
-      </div>
-
-      <div class="control">
-        <button class="button is-primary">Submit</button>
-      </div>
-    </form>
-  </section>
-
+  <require from="../resources/elements/post-form"></require>
+  <post-form title.bind="title" post.bind="post" submit.delegate="createPost()"></post-form>
 </template>
