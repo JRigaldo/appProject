@@ -5,6 +5,7 @@ import {AuthService} from '../common/services/auth-service';
 
 @inject(EventAggregator, AuthService)
 export class Shell{
+
   constructor(EventAggregator, AuthService){
     this.authService = AuthService;
     this.ea = EventAggregator;
@@ -12,6 +13,7 @@ export class Shell{
     this.homepage = false;
     this.createPost = true;
   }
+
   configureRouter(config, router) {
     this.router = router;
     config.map(routes);
@@ -65,6 +67,7 @@ export class Shell{
       console.log(data.success);
       this.router.navigateToRoute('home');
       this.isSelected = false;
+      this.createPost = true;
       this.ea.publish('user', null);
     }).catch(error => {
       this.error = error.message;
