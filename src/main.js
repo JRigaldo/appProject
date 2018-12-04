@@ -3,7 +3,7 @@ import environment from './environment';
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    .plugin('aurelia-dialog')
+    .plugin('aurelia-validation')
     .feature('resources');
 
   aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');

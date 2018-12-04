@@ -5,13 +5,13 @@
       <div class="field">
         <label class="label">title</label>
         <div class="control">
-          <input class="input" type="text" placeholder="title" value.bind="post.title">
+          <input class="input" type="text" placeholder="title" value.bind="post.title & validateOnChange">
         </div>
       </div>
       <div class="field">
         <label class="label">Body</label>
         <div class="control">
-          <textarea class="textarea" placeholder="body" value.bind="post.body"></textarea>
+          <textarea class="textarea" placeholder="body" value.bind="post.body & validateOnChange"></textarea>
         </div>
       </div>
       <label class="checkbox" repeat.for="tag of allTags">
@@ -27,8 +27,12 @@
         </div>
       </div>
 
+      <ul if.bind="controller.errors.length > 0">
+        <li repeat.for="error of controller.errors">${error}</li>
+      </ul>
+
       <div class="control">
-        <button class="button is-primary">Submit</button>
+        <button class="button is-primary" disabled.bind="controller.errors.length > 0">Submit</button>
       </div>
     </form>
   </section>
