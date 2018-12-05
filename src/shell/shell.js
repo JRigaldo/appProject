@@ -1,7 +1,9 @@
 import routes from './routes';
 import {inject} from 'aurelia-framework';
+import {Redirect} from 'aurelia-router';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import {AuthService} from '../common/services/auth-service';
+import {AuthorizeStep} from '../pipeline-steps/authorize-step';
 
 @inject(EventAggregator, AuthService)
 export class Shell{
@@ -16,6 +18,7 @@ export class Shell{
 
   configureRouter(config, router) {
     this.router = router;
+    config.addAuthorizeStep(AuthorizeStep);
     config.map(routes);
   }
 

@@ -6,6 +6,7 @@ export class AuthService {
 		this.users = ['Nick Shallee', 'Jane Doe', 'e'];
 	}
 
+
 	login(name) {
 		return new Promise((resolve, reject) => {
 		  setTimeout(() => {

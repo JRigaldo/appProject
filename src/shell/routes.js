@@ -20,7 +20,8 @@ export default [
     route: 'post/:slug/edit',
     name: 'post-edit',
     moduleId: 'posts/edit',
-    title: 'Edit Post'
+    title: 'Edit Post',
+    auth: true
   },
   {
     route: 'tag/:tag',
@@ -73,6 +74,7 @@ export default [
     moduleId: 'posts/create',
     nav: true,
     title: 'Create Post',
+    auth: true,
     settings: {
       iconClass: 'icon-cool2',
       iconCross: 'icon-cross'
