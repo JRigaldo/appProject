@@ -53,6 +53,7 @@ export default [
     nav: true,
     title: 'Users',
     settings: {
+      auth: true,
       iconClass: 'icon-users',
       iconCross: 'icon-cross'
     }
@@ -64,6 +65,7 @@ export default [
     nav: true,
     title: 'Account',
     settings: {
+      auth: true,
       iconClass: 'icon-cool2',
       iconCross: 'icon-cross'
     }
