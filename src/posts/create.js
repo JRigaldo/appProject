@@ -28,7 +28,10 @@ export class Create{
       this.ea.publish('post-updated', Date());
       this.router.navigateToRoute('post-view', {slug: data.slug});
     }).catch(error => {
-      console.log(error);
+      this.ea.publish('toast', {
+        type: 'error',
+        message: error.message
+      });
     });
   }
 

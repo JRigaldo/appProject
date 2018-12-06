@@ -21,7 +21,10 @@ export class Edit{
       }
       this.post = data.post;
     }).catch(error => {
-      console.log(error);
+      this.ea.publish('toast', {
+        type: 'error',
+        message: error.message
+      });
     });
     this.title = 'Edit';
   }
@@ -31,7 +34,10 @@ export class Edit{
       this.ea.publish('post-updated', Date());
       this.router.navigateToRoute('post-view', {slug: data.slug});
     }).catch(error => {
-      console.log(error);
+      this.ea.publish('toast', {
+        type: 'error',
+        message: error.message
+      });
     });
   }
 
