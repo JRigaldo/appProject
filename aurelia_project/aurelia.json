@@ -61,6 +61,17 @@
             "name": "aurelia-validation",
             "path": "../node_modules/aurelia-validation/dist/amd",
             "main": "aurelia-validation"
+          },
+          {
+            "name": "toastr",
+            "path": "../node_modules/toastr",
+            "main": "toastr.js",
+            "resources": [
+              "build/toastr.min.css"
+            ],
+            "deps": [
+              "jquery"
+            ]
           }
         ]
       }

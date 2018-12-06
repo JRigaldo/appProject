@@ -4,6 +4,7 @@ import {Redirect} from 'aurelia-router';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import {AuthService} from '../common/services/auth-service';
 import {AuthorizeStep} from '../pipeline-steps/authorize-step';
+import * as toastr from 'toastr';
 
 @inject(EventAggregator, AuthService)
 export class Shell{
@@ -43,6 +44,9 @@ export class Shell{
       this.homepage = true;
     }
 
+    this.subscribToastr = this.ea.subscribe('toast', toast => {
+      toastr[toast.type](toast.message);
+    });
   }
 
   navigationSuccess(event) {
@@ -68,19 +72,27 @@ export class Shell{
   logout(){
     this.authService.logout().then(data => {
       console.log(data.success);
+      this.ea.publish('toastr', {
+        type: 'success',
+        message: 'You have successfully logged out.'
+      });
       this.router.navigateToRoute('home');
       this.isSelected = false;
       this.createPost = true;
       this.ea.publish('user', null);
     }).catch(error => {
-      this.error = error.message;
-    })
+      this.ea.publish('toast', {
+        type: 'error',
+        message: error.message
+      });
+    });
   }
 
   detached() {
       this.subscriptionNavigationSuccess.dispose();
       this.subscriberBackToMenu.dispose();
       this.subscriptionUser.dispose();
+      // this.subscribToastr.dispose();
   }
 
 

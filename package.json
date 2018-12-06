@@ -21,7 +21,8 @@
     "moment": "^2.22.2",
     "requirejs": "^2.3.5",
     "slick-carousel": "^1.8.1",
-    "text": "github:requirejs/text#latest"
+    "text": "github:requirejs/text#latest",
+    "toastr": "^2.1.4"
   },
   "peerDependencies": {},
   "devDependencies": {
