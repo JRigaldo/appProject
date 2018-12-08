@@ -1,8 +1,6 @@
 <template>
   <require from="../resources/elements/carousel"></require>
   <require from="../resources/value-converters/date-format"></require>
-  <require from="../resources/elements/message-header.html"></require>
-  <message-header error.bind="error"></message-header>
 
   <a route-href="route: post-edit; params.bind: {slug: post.slug}" if.bind="authService.currentUser === post.author">Edit post</a>
 

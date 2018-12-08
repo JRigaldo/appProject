@@ -19,7 +19,6 @@ export class ArchiveView{
         type: 'error',
         message: error.message
       });
-      // this.error = error.message;
     });
   }
 }

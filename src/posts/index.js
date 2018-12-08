@@ -20,18 +20,27 @@ export class Index{
     this.postService.allPostPreviews().then(data => {
       this.posts = data.posts;
     }).catch(error => {
-      this.error = error.message;
+      this.ea.publish('toast', {
+        type: 'error',
+        message: error.message
+      });
     });
     this.postService.allTags().then(data => {
       this.tags = data.tags;
       console.log(this.tags);
     }).catch(error => {
-      this.error = error.message;
+      this.ea.publish('toast', {
+        type: 'error',
+        message: error.message
+      });
     });
     this.postService.allArchives().then(data => {
       this.archives = data.archives;
     }).catch(error => {
-      this.error = error.message;
+      this.ea.publish('toast', {
+        type: 'error',
+        message: error.message
+      });
     });
   }
 

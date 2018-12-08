@@ -23,8 +23,9 @@ export class Edit{
     }).catch(error => {
       this.ea.publish('toast', {
         type: 'error',
-        message: error.message
+        message: 'Post not found'
       });
+      this.router.navigateToRoute('home');
     });
     this.title = 'Edit';
   }
@@ -32,6 +33,10 @@ export class Edit{
   editPost(){
     this.postService.update(this.post).then(data => {
       this.ea.publish('post-updated', Date());
+      this.ea.publish('toast', {
+        type: 'error',
+        message: 'Post edited !'
+      });
       this.router.navigateToRoute('post-view', {slug: data.slug});
     }).catch(error => {
       this.ea.publish('toast', {
