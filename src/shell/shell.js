@@ -2,19 +2,21 @@ import routes from './routes';
 import {inject} from 'aurelia-framework';
 import {Redirect} from 'aurelia-router';
 import { EventAggregator } from 'aurelia-event-aggregator';
+import {I18N} from 'aurelia-i18n';
 import {AuthService} from '../common/services/auth-service';
 import {AuthorizeStep} from '../pipeline-steps/authorize-step';
 import * as toastr from 'toastr';
 
-@inject(EventAggregator, AuthService)
+@inject(EventAggregator, AuthService, I18N)
 export class Shell{
 
-  constructor(EventAggregator, AuthService){
+  constructor(EventAggregator, AuthService, I18N){
     this.authService = AuthService;
     this.ea = EventAggregator;
     this.isSelected = false;
     this.homepage = false;
     this.createPost = true;
+    this.i18n = I18N;
   }
 
   configureRouter(config, router) {
@@ -110,5 +112,9 @@ export class Shell{
       this.router.navigateToRoute('home');
       this.createPost = true;
     }
+  }
+
+  setLocale(locale){
+    this.i18n.setLocale(locale);
   }
 }

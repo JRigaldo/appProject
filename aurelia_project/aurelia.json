@@ -26,7 +26,7 @@
       {
         "name": "app-bundle.js",
         "source": [
-          "**/*.{js,css,html}"
+          "**/*.{js,css,html,json}"
         ]
       },
       {
@@ -52,6 +52,18 @@
             "env": "dev"
           },
           "text",
+          {
+            "name": "aurelia-i18n",
+            "main": "aurelia-i18n",
+            "path": "../node_modules/aurelia-i18n/dist/amd",
+            "resources": []
+          },
+          {
+            "name": "i18next",
+            "main": "i18next",
+            "path": "../node_modules/i18next/dist/umd",
+            "resources": []
+          },
           {
             "name": "aurelia-dialog",
             "path": "../node_modules/aurelia-dialog/dist/amd",
@@ -85,9 +97,10 @@
           "name": "text",
           "extensions": [
             ".html",
-            ".css"
+            ".css",
+            ".json"
           ],
-          "stub": true
+          "stub": false
         }
       ]
     }
