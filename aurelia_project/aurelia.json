@@ -72,6 +72,11 @@
             "deps": [
               "jquery"
             ]
+          },
+          {
+            "name": "textarea-autosize",
+            "path": "../node_modules/textarea-autosize/dist",
+            "main": "jquery.textarea_autosize.js"
           }
         ]
       }

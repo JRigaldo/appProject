@@ -21,7 +21,6 @@ export default [
     name: 'post-edit',
     moduleId: 'posts/edit',
     title: 'Edit Post',
-    auth: true
   },
   {
     route: 'tag/:tag',
@@ -52,8 +51,8 @@ export default [
     moduleId: 'users/users',
     nav: true,
     title: 'Users',
+    auth: true,
     settings: {
-      auth: true,
       iconClass: 'icon-users',
       iconCross: 'icon-cross'
     }
@@ -64,8 +63,8 @@ export default [
     moduleId: 'users/account',
     nav: true,
     title: 'Account',
+    auth: true,
     settings: {
-      auth: true,
       iconClass: 'icon-cool2',
       iconCross: 'icon-cross'
     }

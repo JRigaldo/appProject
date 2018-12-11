@@ -2,6 +2,8 @@ import {inject, bindable} from 'aurelia-framework';
 import {ValidationRules, ValidationControllerFactory, validationMessages} from 'aurelia-validation';
 import {PostService} from '../../common/services/post-service';
 import {EventAggregator} from 'aurelia-event-aggregator';
+import $ from 'jquery';
+import * as textareaAutosize from 'textarea-autosize';
 
 @inject(PostService, ValidationControllerFactory, EventAggregator)
 export class PostForm{
@@ -24,6 +26,8 @@ export class PostForm{
         message: error.message
       })
     });
+
+    $('textarea.js-auto-size').textareaAutoSize();
   }
 
   submit(){

@@ -8,6 +8,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "angular2-autosize": "^1.0.2",
     "aurelia-animator-css": "^1.0.4",
     "aurelia-bootstrapper": "^2.2.0",
     "aurelia-dialog": "^2.0.0-rc.3",
@@ -22,6 +23,7 @@
     "requirejs": "^2.3.5",
     "slick-carousel": "^1.8.1",
     "text": "github:requirejs/text#latest",
+    "textarea-autosize": "^0.4.2",
     "toastr": "^2.1.4"
   },
   "peerDependencies": {},

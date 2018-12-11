@@ -163,21 +163,21 @@ button:hover{
   cursor: pointer;
 }
 
-form{
-  position: relative;
-  max-width: 500px;
-  width: 50%;
-  min-width: 300px;
-  .form-text{
-    margin: 0 30px 0 0;
-  }
-  .control{
-    margin: 30px 0 0 0;
-    &:first-child{
-      margin-top: 0;
-    }
-  }
-}
+// form{
+//   position: relative;
+//   max-width: 500px;
+//   width: 50%;
+//   min-width: 300px;
+//   .form-text{
+//     margin: 0 30px 0 0;
+//   }
+//   .control{
+//     margin: 30px 0 0 0;
+//     &:first-child{
+//       margin-top: 0;
+//     }
+//   }
+// }
 
 
 header{

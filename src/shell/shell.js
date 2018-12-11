@@ -48,11 +48,6 @@ export class Shell{
       toastr[toast.type](toast.message);
     });
 
-    this.ea.publish('toast', {
-      type: 'success',
-      message: 'Hello World !'
-    });
-
   }
 
   navigationSuccess(event) {
