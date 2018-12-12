@@ -28,6 +28,18 @@ export class PostForm{
     });
 
     $('textarea.js-auto-size').textareaAutoSize();
+
+    $('.field-input').focus(function(){
+      $(this).parent().addClass('is-focused has-label');
+    });
+
+    $('.field-input').blur(function(){
+
+      if($(this).val() == ''){
+        $(this).parent().removeClass('has-label')
+      }
+      $(this).parent().removeClass('is-focused');
+    });
   }
 
   submit(){
