@@ -4,8 +4,8 @@
     <form submit.delegate="submit()">
 
       <div class="field">
-        <label class="field-label">title</label>
-        <input class="field-input" type="text" value.bind="post.title & validateOnChange">
+        <label class="field-label">Title</label>
+        <input class="field-input field-title" type="text" value.bind="post.title & validateOnChange">
       </div>
 
       <div class="field-textarea">
@@ -17,17 +17,19 @@
 
 
 
-
-      <div class="field-tag">
-        <div class="tags">
-          <label class="checkbox" repeat.for="tag of allTags">
-            <input type="checkbox" checked.bind="post.tags" value.bind="tag">
-            ${tag}
+        <div class="field-tags" repeat.for="tag of allTags">
+          <label class="label">
+            <input class="label__checkbox" type="checkbox" checked.bind="post.tags" value.bind="tag" />
+            <span class="label__icon">
+              <span class="label__check">
+                <i class="fa fa-check icon"></i>
+              </span>
+            </span>
+            <span class="label__text">${tag}</span>
           </label>
         </div>
-      </div>
 
-      <div class="main-tag">
+      <!-- <div class="main-tag">
         <div class="control">
           <input class="input" type="text" placeholder="Add Tag" value.bind="newTag">
           <button click.delegate="addTag()">Add Tag +</button>
@@ -40,7 +42,7 @@
 
       <div class="control">
         <button class="button is-primary" disabled.bind="controller.errors.length > 0">Submit</button>
-      </div>
+      </div> -->
     </form>
   </section>
 </template>

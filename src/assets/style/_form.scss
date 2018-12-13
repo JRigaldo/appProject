@@ -1,7 +1,15 @@
+form{
+  height: 100%;
+}
+
+.field:not(:last-child){
+  margin-bottom: 0;
+}
+
 .field{
   position: relative;
-  height: 72px;
-  padding: 16px 0 8px 0;
+  // height: 72px;
+  // padding: 16px 0 8px 0;
 }
 
 .field-label{
@@ -38,13 +46,13 @@
   height: 2px;
   width: 100%;
   position: absolute;
-  bottom: 6px;
+  bottom: 0;
   left: 0;
-  background-color: $grey-lighter;
+  background-color: $grey-light;
 }
 
 .field:after{
-  background-color: $green;
+  background-color: $primary;
   transform: scaleX(0);
   transition: transform 0.3s;
 }
@@ -55,7 +63,7 @@
 
 .is-focused .field-label{
   transform: translateY(0) scale(0.75);
-  color: $green;
+  color: $primary;
 }
 
 .has-label .field-label{
@@ -90,7 +98,7 @@ textarea.field-input{
   display: block;
   width: 100%;
   height: 2px;
-  background: $grey-lighter;
+  background: $grey-light;
 }
 
 .line:after{
@@ -100,11 +108,17 @@ textarea.field-input{
   left: 0;
   right: 0;
   height: 2px;
-  background-color: $red;
+  background-color: $primary;
   transform: scaleX(0);
   transition: transform 0.3s;
 }
 
 .field-textarea.is-focused .line:after{
   transform: scaleX(1);
+}
+
+.field-title{
+  font-weight: 800;
+  color: $grey-dark;
+  font-size: 1.1em;
 }
