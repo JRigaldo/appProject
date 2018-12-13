@@ -36,3 +36,18 @@
     margin-bottom: 0;
   }
 }
+
+.field-tag{
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.field-tag .tags{
+  color: $grey-lighter;
+  font-weight: 600;
+  &:before{
+    content: '#';
+  }
+}
