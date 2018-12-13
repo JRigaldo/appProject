@@ -8,12 +8,15 @@
         <input class="field-input" type="text" value.bind="post.title & validateOnChange">
       </div>
 
-      <!-- <div class="field">
-        <label class="label">title</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="title" value.bind="post.title & validateOnChange">
-        </div>
+      <div class="field-textarea">
+        <label class="field-label">Body</label>
+        <textarea class="field-input js-auto-size" type="text" value.bind="post.body & validateOnChange"></textarea>
+        <span class="line"></span>
       </div>
+
+
+
+      <!--
 
       <div class="field">
         <label class="label">Body</label>

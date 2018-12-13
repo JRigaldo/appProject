@@ -71,3 +71,40 @@ textarea, textarea:focus, input, input:focus{
   box-shadow: none;
   resize: none;
 }
+
+.field-textarea{
+  position: relative;
+}
+
+textarea.field-input{
+  padding-top: 7px;
+  padding-bottom: 7px;
+  box-sizing: border-box;
+  max-height: 150px; /* optional, but recommended */
+  min-height: 32px;
+  overflow-x: hidden; /* for Firefox (issue #5) */
+}
+
+.line{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: $grey-lighter;
+}
+
+.line:after{
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: $red;
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.field-textarea.is-focused .line:after{
+  transform: scaleX(1);
+}
