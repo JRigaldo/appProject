@@ -14,6 +14,7 @@ form{
 
 .field-label{
   position: relative;
+  text-align: left;
   line-height: 16px;
   font-size: 1em;
   display: block;
@@ -55,6 +56,18 @@ form{
   background-color: $primary;
   transform: scaleX(0);
   transition: transform 0.3s;
+}
+
+.field span.icon{
+  margin-right: 5px;
+}
+
+.field.is-danger .field-label{
+  color: $red;
+}
+
+.field.is-danger:after{
+  background-color: $red;
 }
 
 .field.is-focused:after{

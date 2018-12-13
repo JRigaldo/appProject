@@ -12,6 +12,20 @@ export class Login{
     this.authservice = AuthService;
   }
 
+  attached(){
+    $('.field-input').focus(function(){
+      $(this).parent().addClass('is-focused has-label');
+    });
+
+    $('.field-input').blur(function(){
+
+      if($(this).val() == ''){
+        $(this).parent().removeClass('has-label')
+      }
+      $(this).parent().removeClass('is-focused');
+    });
+  }
+
   activate(){
     this.error = null;
   }
@@ -22,6 +36,10 @@ export class Login{
       this.ea.publish('user', data.name);
       this.router.navigateToRoute('home');
     }).catch(error => {
+      this.ea.publish('toast', {
+        type: 'error',
+        message: error.message
+      });
       this.error = error.message;
     })
   }

@@ -1,31 +1,27 @@
 <template>
-  <article class="message is-danger" if.bind="error">
-    <div class="message-body">
-      ${error}
-    </div>
-  </article>
   <form action="" submit.delegate="login()">
     <div class="form-text"><Label>Enter your username and<br>password to login</Label></div>
 
-    <div class="control has-icons-left has-icons-right">
-      <input class="input ${error ? 'is-danger' : ''}" type="text" placeholder="Name" value.bind="name">
-      <span class="icon is-small is-left">
-        <i class="fas fa-user"></i>
-      </span>
-      <span class="icon is-small is-right">
-        <i class="fas ${error ? 'fa-blocked' : ''}"></i>
-      </span>
+    <div class="field ${error ? 'is-danger' : ''}">
+      <label class="field-label">
+        <span class="icon is-small is-left">
+          <i class="fa ${error ? 'fa-blocked' : 'fa-user'}"></i>
+        </span>
+        Name
+      </label>
+      <input class="field-input" type="text" value.bind="name">
     </div>
 
-    <div class="control has-icons-left has-icons-right">
-      <input class="input ${error ? 'is-danger' : ''}" type="text" placeholder="Password" value.bind="password">
-      <span class="icon is-small is-left">
-        <i class="fas fa-lock"></i>
-      </span>
-      <span class="icon is-small is-right">
-        <i class="fas ${error ? 'fa-blocked' : ''}"></i>
-      </span>
+    <div class="field ${error ? 'is-danger' : ''}">
+      <label class="field-label">
+        <span class="icon is-small is-left">
+          <i class="fa ${error ? 'fa-blocked' : 'fa-lock'}"></i>
+        </span>
+        Password
+      </label>
+      <input class="field-input" type="text" value.bind="password">
     </div>
+
     <div class="control">
       <button class="button is-primary" type="submit">Submit</button>
     </div>
