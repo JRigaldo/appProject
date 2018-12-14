@@ -14,7 +14,13 @@ export class PostForm{
     this.ea = EventAggregator;
     this.postService = PostService;
     this.controller = ValidationControllerFactory.createForCurrentScope();
-    console.log(this.controller);
+    this.tagValue = '';
+    // console.log(this.controller);
+  }
+
+  activate(){
+
+
   }
 
   attached(){
@@ -27,19 +33,27 @@ export class PostForm{
       })
     });
 
+    setTimeout(() => {
+      $("textarea").height( $("textarea")[0].scrollHeight);
+    }, 100)
+
     $('textarea.js-auto-size').textareaAutoSize();
 
-    $('.field-input').focus(function(){
+
+    $('.field-input, .field-textarea').focus(function(){
       $(this).parent().addClass('is-focused has-label');
     });
 
-    $('.field-input').blur(function(){
-
+    $('.field-input, .field-textarea').blur(function(){
       if($(this).val() == ''){
         $(this).parent().removeClass('has-label')
       }
       $(this).parent().removeClass('is-focused');
     });
+
+    if(this.tagValue != ''){
+      this.tagValue = true;
+    }
   }
 
   submit(){

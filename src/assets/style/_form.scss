@@ -93,10 +93,16 @@ textarea, textarea:focus, input, input:focus{
   resize: none;
 }
 
-.field-textarea{
+textarea{
   position: relative;
+  display: block;
+  width: 100%;
+  // height: 100%;
+  font-size: 1em;
+  border-bottom: 2px solid $grey-lighter;
 }
 
+// autosize jquery plugin add also $('textarea.js-auto-size').textareaAutoSize();
 textarea.field-input{
   padding-top: 7px;
   padding-bottom: 7px;
@@ -104,6 +110,7 @@ textarea.field-input{
   max-height: 150px; /* optional, but recommended */
   min-height: 32px;
   overflow-x: hidden; /* for Firefox (issue #5) */
+  line-height: 20px;
 }
 
 .line{
@@ -134,4 +141,13 @@ textarea.field-input{
   font-weight: 800;
   color: $grey-dark;
   font-size: 1.1em;
+}
+
+.field-edit.is-focused textarea{
+  // transition-duration fait foiré le resize du textarea
+  color: $primary;
+}
+
+.field-edit.is-focused input{
+  color: $primary;
 }
