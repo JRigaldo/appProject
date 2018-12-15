@@ -4,7 +4,8 @@ export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
     .feature('resources')
-    .plugin('aurelia-validation');
+    .plugin('aurelia-validation')
+    .plugin('aurelia-dialog');
 
   aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
 

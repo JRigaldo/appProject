@@ -35,7 +35,7 @@ export class Edit{
     this.postService.update(this.post).then(data => {
       this.ea.publish('post-updated', Date());
       this.ea.publish('toast', {
-        type: 'error',
+        type: 'success',
         message: 'Post edited !'
       });
       this.router.navigateToRoute('post-view', {slug: data.slug});

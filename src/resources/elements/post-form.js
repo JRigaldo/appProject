@@ -4,23 +4,21 @@ import {PostService} from '../../common/services/post-service';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import $ from 'jquery';
 import * as textareaAutosize from 'textarea-autosize';
+import {DialogService} from 'aurelia-dialog';
+import {Prompt} from '../modal/prompt';
 
-@inject(PostService, ValidationControllerFactory, EventAggregator)
+@inject(PostService, ValidationControllerFactory, EventAggregator, DialogService)
 export class PostForm{
   @bindable title;
   @bindable post;
 
-  constructor(PostService, ValidationControllerFactory, EventAggregator){
+  constructor(PostService, ValidationControllerFactory, EventAggregator, DialogService){
     this.ea = EventAggregator;
     this.postService = PostService;
     this.controller = ValidationControllerFactory.createForCurrentScope();
     this.tagValue = '';
+    this.dialogService = DialogService;
     // console.log(this.controller);
-  }
-
-  activate(){
-
-
   }
 
   attached(){
@@ -61,9 +59,19 @@ export class PostForm{
   }
 
   addTag(){
-    this.allTags.push(this.newTag);
-    this.post.tags.push(this.newTag);
-    this.newTag = '';
+    this.dialogService.open({viewModel: Prompt, model: 'Are you sure ?'}).then(response => {
+      console.log(response);
+      if (!response.wasCancelled) {
+        console.log('Ok');
+        this.allTags.push(this.newTag);
+        this.post.tags.push(this.newTag);
+        this.newTag = '';
+      }else{
+        console.log('Cancelled');
+      }
+      console.log(response.output);
+    });
+
   }
 
   postChanged(newValue, oldValue){
@@ -79,11 +87,12 @@ export class PostForm{
       .ensure('body').displayName('body')
         .required()
         .minLength(5)
-        .maxLength(50)
+        .maxLength(650)
        .on(this.post);
 
       this.controller.validate();
     }
   }
+
 
 }
