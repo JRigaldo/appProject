@@ -1,20 +1,24 @@
-import {inject} from 'aurelia-framework';
+import {inject, bindable} from 'aurelia-framework';
 import {DialogController} from 'aurelia-dialog';
 
 @inject(DialogController)
 export class Prompt{
 
+  newTag = '';
   constructor(controller){
     this.controller = controller;
-    this.answer = null;
 
     controller.settings.centerHorizontalOnly = true;
   }
-
-
-  activate(message){
-    this.message = message;
+ 
+  activate(newTag){
+    this.newTag = newTag;
   }
+
+  cancel() {
+    this.controller.cancel();
+  }
+
 
 
 }

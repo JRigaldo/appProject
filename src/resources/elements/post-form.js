@@ -12,13 +12,13 @@ export class PostForm{
   @bindable title;
   @bindable post;
 
+
   constructor(PostService, ValidationControllerFactory, EventAggregator, DialogService){
     this.ea = EventAggregator;
     this.postService = PostService;
     this.controller = ValidationControllerFactory.createForCurrentScope();
-    this.tagValue = '';
+    // this.tagValue = '';
     this.dialogService = DialogService;
-    // console.log(this.controller);
   }
 
   attached(){
@@ -49,29 +49,26 @@ export class PostForm{
       $(this).parent().removeClass('is-focused');
     });
 
-    if(this.tagValue != ''){
-      this.tagValue = true;
-    }
+    // if(this.tagValue != ''){
+    //   this.tagValue = true;
+    // }
   }
 
   submit(){
 
   }
 
-  addTag(){
-    this.dialogService.open({viewModel: Prompt, model: 'Are you sure ?'}).then(response => {
-      console.log(response);
+  newTag = '';
+  openModal(){
+    this.dialogService.open({ viewModel: Prompt, model: this.newTag, lock: false }).whenClosed(response => {
       if (!response.wasCancelled) {
-        console.log('Ok');
-        this.allTags.push(this.newTag);
-        this.post.tags.push(this.newTag);
-        this.newTag = '';
-      }else{
-        console.log('Cancelled');
+        console.log('good - ', response.output);
+        this.allTags.push(response.output);
+      } else {
+        console.log('bad');
       }
       console.log(response.output);
     });
-
   }
 
   postChanged(newValue, oldValue){
@@ -92,6 +89,10 @@ export class PostForm{
 
       this.controller.validate();
     }
+  }
+
+  detached(){
+    this.subscribeNewTag.dispose();
   }
 
 
