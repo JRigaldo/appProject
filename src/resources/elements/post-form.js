@@ -52,6 +52,8 @@ export class PostForm{
     // if(this.tagValue != ''){
     //   this.tagValue = true;
     // }
+
+
   }
 
   submit(){
@@ -62,8 +64,18 @@ export class PostForm{
   openModal(){
     this.dialogService.open({ viewModel: Prompt, model: this.newTag, lock: false }).whenClosed(response => {
       if (!response.wasCancelled) {
-        console.log('good - ', response.output);
-        this.allTags.push(response.output);
+        if(response.output !== null && response.output !== ''){
+          for (var i = 0; i < this.allTags.length; i++) {
+            if (response.output === this.allTags[i]) {
+              return console.log('tag already existe');
+            }
+          }
+          console.log('good - ', response.output);
+          this.allTags.push(response.output);
+          this.post.tags.push(response.output);
+        }else{
+          console.log('Empty value');
+        }
       } else {
         console.log('bad');
       }

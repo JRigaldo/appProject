@@ -10,7 +10,7 @@ export class Prompt{
 
     controller.settings.centerHorizontalOnly = true;
   }
- 
+
   activate(newTag){
     this.newTag = newTag;
   }
