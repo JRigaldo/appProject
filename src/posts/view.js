@@ -13,6 +13,8 @@ export class View{
 
   activate(params){
     this.error = '';
+    // console.log(params);
+    this.relatePost = params;
     this.postService.find(params.slug).then(data => {
       this.post = data.post;
     }).catch(error => {
@@ -20,6 +22,18 @@ export class View{
         type: 'error',
         message: error.message
       });
-    })
+    });
+  }
+
+  attached(){
+    console.log(this.relatePost);
+    this.postService.allPostPreviews().then(data => {
+      this.posts = data.posts;
+    }).catch(error => {
+      this.ea.publish('toast', {
+        type: 'error',
+        message: error.message
+      });
+    });
   }
 }

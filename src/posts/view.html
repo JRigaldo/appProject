@@ -1,11 +1,10 @@
 <template>
-  <require from="../resources/elements/carousel"></require>
   <require from="../resources/value-converters/date-format"></require>
+  <require from="../resources/elements/masonry-grid"></require>
 
   <a route-href="route: post-edit; params.bind: {slug: post.slug}" if.bind="authService.currentUser === post.author">Edit post</a>
 
   <section class="view" if.bind="!error">
-    <!-- <carousel></carousel> -->
     <!-- Description -->
     <article>
       <h3>${post.author}</h3>
@@ -20,6 +19,9 @@
         </div>
       </div>
     </div>
+    <masonry-grid posts.bind="posts"></masonry-grid>
   </section>
+
+
 
 </template>
