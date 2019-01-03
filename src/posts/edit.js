@@ -4,7 +4,6 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 import {PostService} from '../common/services/post-service';
 import {AuthService} from '../common/services/auth-service';
 
-
 @inject(PostService, AuthService, Router, EventAggregator)
 export class Edit{
 
@@ -20,6 +19,7 @@ export class Edit{
       // if(data.post.author !== this.authService.currentUser){
       //   this.router.navigateToRoute('home');
       // }
+
       this.post = data.post;
     }).catch(error => {
       this.ea.publish('toast', {
@@ -46,6 +46,4 @@ export class Edit{
       });
     });
   }
-
-
 }

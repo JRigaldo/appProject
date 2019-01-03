@@ -6,19 +6,21 @@ import $ from 'jquery';
 import * as textareaAutosize from 'textarea-autosize';
 import {DialogService} from 'aurelia-dialog';
 import {Prompt} from '../modal/prompt';
+import {Router} from 'aurelia-router';
 
-@inject(PostService, ValidationControllerFactory, EventAggregator, DialogService)
+@inject(PostService, ValidationControllerFactory, EventAggregator, DialogService, Router)
 export class PostForm{
   @bindable title;
   @bindable post;
 
 
-  constructor(PostService, ValidationControllerFactory, EventAggregator, DialogService){
+  constructor(PostService, ValidationControllerFactory, EventAggregator, DialogService, Router){
     this.ea = EventAggregator;
     this.postService = PostService;
     this.controller = ValidationControllerFactory.createForCurrentScope();
-    // this.tagValue = '';
     this.dialogService = DialogService;
+    this.isCreate = false;
+    this.router = Router;
   }
 
   attached(){
@@ -31,12 +33,7 @@ export class PostForm{
       })
     });
 
-    setTimeout(() => {
-      $("textarea").height( $("textarea")[0].scrollHeight);
-    }, 100)
-
     $('textarea.js-auto-size').textareaAutoSize();
-
 
     $('.field-input, .field-textarea').focus(function(){
       $(this).parent().addClass('is-focused has-label');
@@ -44,20 +41,20 @@ export class PostForm{
 
     $('.field-input, .field-textarea').blur(function(){
       if($(this).val() == ''){
-        $(this).parent().removeClass('has-label')
+        $(this).parent().removeClass('has-label');
+        $(this).parent().children('span').addClass('line');
       }
       $(this).parent().removeClass('is-focused');
     });
 
-    // if(this.tagValue != ''){
-    //   this.tagValue = true;
-    // }
-
-
-  }
-
-  submit(){
-
+    if(this.router.currentInstruction.config.name === 'create-post'){
+      this.isCreate = true;
+      $('input, textarea').removeAttr('placeholder')
+    }else if (this.router.currentInstruction.config.name === 'post-edit') {
+      setTimeout(() => {
+        $("textarea").height($("textarea")[0].scrollHeight);
+      }, 100)
+    }
   }
 
   newTag = '';
@@ -83,6 +80,8 @@ export class PostForm{
     });
   }
 
+  submit(){}
+
   postChanged(newValue, oldValue){
 
     validationMessages['required'] = `You must enter a \${$displayName}.`;
@@ -102,10 +101,5 @@ export class PostForm{
       this.controller.validate();
     }
   }
-
-  detached(){
-    this.subscribeNewTag.dispose();
-  }
-
 
 }

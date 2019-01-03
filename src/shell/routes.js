@@ -75,7 +75,6 @@ export default [
     moduleId: 'posts/create',
     nav: true,
     title: 'Create Post',
-    auth: true,
     settings: {
       iconClass: 'icon-cool2',
       iconCross: 'icon-cross'

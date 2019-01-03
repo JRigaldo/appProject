@@ -8,18 +8,20 @@ form{
 
 .field{
   position: relative;
-  // height: 72px;
+  // height: 48px;
   // padding: 16px 0 8px 0;
 }
+
+
 
 .field-label{
   position: relative;
   text-align: left;
-  line-height: 16px;
+  line-height: 32px;
   font-size: 1em;
   display: block;
   margin: 0;
-  transform: translateY(24px);
+  transform: translateY(35px);
   transition: transform 0.3s, font-size 0.3s;
   transform-origin: 0 50%;
 }
@@ -27,11 +29,13 @@ form{
 .field-input{
   position: relative;
   background-color: transparent;
-  // padding: 0 8px;
-  line-height: 16px;
+  line-height: 20px;
   font-size: 1em;
+  max-height: 150px;
+  min-height: 32px;
   height: 32px;
   border: none;
+  padding: 7px 0;
   -webkit-webkit-apperanc: none;
   -moz-webkit-apperanc: none;
   -ms-webkit-apperanc: none;
@@ -40,8 +44,11 @@ form{
   display: block;
   width: 100%;
   outline-color: none;
+  overflow-x: hidden;
 }
 
+// .field ajoute une line sous l'input avec du css (grafikart)
+// Aletrnative ajouter la class line sous l'input (règle les problème lié au javascript du text area notamment)
 .field:after, .field:before{
   content: '';
   height: 2px;
@@ -98,19 +105,9 @@ textarea{
   display: block;
   width: 100%;
   // height: 100%;
+  min-height: 32px;
   font-size: 1em;
   border-bottom: 2px solid $grey-lighter;
-}
-
-// autosize jquery plugin add also $('textarea.js-auto-size').textareaAutoSize();
-textarea.field-input{
-  padding-top: 7px;
-  padding-bottom: 7px;
-  box-sizing: border-box;
-  max-height: 150px; /* optional, but recommended */
-  min-height: 32px;
-  overflow-x: hidden; /* for Firefox (issue #5) */
-  line-height: 20px;
 }
 
 .line{
@@ -122,18 +119,22 @@ textarea.field-input{
 }
 
 .line:after{
-  position: absolute;
   content: '';
+  height: 2px;
+  width: 100%;
+  position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
-  height: 2px;
-  background-color: $primary;
-  transform: scaleX(0);
-  transition: transform 0.3s;
+  background-color: $grey-light;
 }
 
-.field-textarea.is-focused .line:after{
+.line:after{
+  background-color: $primary;
+  transform: scaleX(0);
+  transition: transform 0.4s;
+}
+
+.is-focused .line:after{
   transform: scaleX(1);
 }
 
@@ -141,6 +142,10 @@ textarea.field-input{
   font-weight: 800;
   color: $grey-dark;
   font-size: 1.1em;
+}
+
+.field-edit label{
+  display: none;
 }
 
 .field-edit.is-focused textarea{

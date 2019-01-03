@@ -2,13 +2,23 @@
   <section class="post-form">
     <form submit.delegate="submit()">
 
-      <div class="field-edit">
-        <input class="field-input field-title" placeholder="Title" type="text" value.bind="post.title & validateOnChange">
+      <div class="${isCreate ? '' : 'field-edit'}">
+        <label class="${isCreate ? 'field-label' : ''}">Title</label>
+        <input class="field-input ${isCreate ? '' : 'field-title'}" id="field-value" placeholder="Title" type="text" value.bind="post.title & validateOnChange">
+        <span class="${isCreate ? 'line' : ''}"></span>
       </div>
 
-      <div class="field-edit field-textarea">
+      <div class="${isCreate ? '' : 'field-edit'}">
+        <label class="${isCreate ? 'field-label' : ''}">Body</label>
         <textarea class="field-input js-auto-size" placeholder="Body" type="text" value.bind="post.body & validateOnChange"></textarea>
+        <span class="${isCreate ? 'line' : ''}"></span>
       </div>
+
+      <!-- <div class="field-content">
+        <label class="field-label">Body</label>
+        <textarea class="field-input js-auto-size" type="text" value.bind="post.body & validateOnChange"></textarea>
+      </div>
+      <span class="${isCreate ? 'line' : ''}"></span> -->
 
         <div class="field-tags" repeat.for="tag of allTags">
           <label class="label">
