@@ -14,12 +14,6 @@
         <span class="${isCreate ? 'line' : ''}"></span>
       </div>
 
-      <!-- <div class="field-content">
-        <label class="field-label">Body</label>
-        <textarea class="field-input js-auto-size" type="text" value.bind="post.body & validateOnChange"></textarea>
-      </div>
-      <span class="${isCreate ? 'line' : ''}"></span> -->
-
         <div class="field-tags" repeat.for="tag of allTags">
           <label class="label">
             <input class="label__checkbox" type="checkbox" checked.bind="post.tags" value.bind="tag" />
@@ -38,14 +32,14 @@
           </svg>
         </button>
 
-        <!-- <div class="field">
+        <div class="field">
           <ul if.bind="controller.errors.length > 0">
             <li repeat.for="error of controller.errors">${error}</li>
           </ul>
-        </div> -->
+        </div>
 
         <div class="control">
-          <button class="button is-primary" disabled.bind="controller.errors.length > 0" click.delegate="submit()">Submit</button>
+          <button class="button is-primary" disabled.bind="controller.errors.length > 0">Submit</button>
         </div>
     </form>
   </section>

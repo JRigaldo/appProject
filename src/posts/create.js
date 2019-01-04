@@ -24,6 +24,7 @@ export class Create{
   };
 
   createPost(){
+    console.log('Create submit not working');
     this.postService.create(this.post).then(data => {
       this.ea.publish('post-updated', Date());
       this.ea.publish('toast', {

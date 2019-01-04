@@ -6,6 +6,7 @@ export function configure(aurelia) {
     .standardConfiguration()
     .feature('resources')
     .plugin('aurelia-validation')
+    .plugin('aurelia-dialog')
     .plugin('aurelia-i18n', instance => {
       instance.i18next.use(Backend.with(aurelia.loader));
         return instance.setup({

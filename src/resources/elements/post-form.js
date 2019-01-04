@@ -59,6 +59,11 @@ export class PostForm{
 
   newTag = '';
   openModal(){
+    // if (e.keyCode == 13) {
+    //     var tb = document.getElementById("scriptBox");
+    //     eval(tb.value);
+    //     return false;
+    // }
     this.dialogService.open({ viewModel: Prompt, model: this.newTag, lock: false }).whenClosed(response => {
       if (!response.wasCancelled) {
         if(response.output !== null && response.output !== ''){
@@ -80,7 +85,9 @@ export class PostForm{
     });
   }
 
-  submit(){}
+  submit(){
+
+  }
 
   postChanged(newValue, oldValue){
 
