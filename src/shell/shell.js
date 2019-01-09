@@ -55,7 +55,7 @@ export class Shell{
 
     this.subscribeEditParams = this.ea.subscribe('pageParams', params => {
       console.log('pageParams', params);
-      this.iconEditPost.bind(this)
+      this.iconEditPost.bind(this);
     });
   }
 
@@ -119,5 +119,14 @@ export class Shell{
       this.subscriberBackToMenu.dispose();
       this.subscriptionUser.dispose();
       this.subscribToastr.dispose();
+  }
+
+  goBack(){
+    console.log('back');
+    history.back();
+  }
+
+  goForward() {
+    history.forward();
   }
 }
