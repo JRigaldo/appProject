@@ -93,6 +93,10 @@ header .navbar-menu{
   padding: 0;
   box-shadow: none;
 
+  .active svg.icons{
+    fill: $primary;
+  }
+
   &:after{
     content: '';
     clear: both;
@@ -126,29 +130,51 @@ header .navbar-menu{
 }
 
 // HEADER NAVABR-MENU ICONS
-.navbar-menu.start svg path{
+// .navbar-menu.start svg path{
+//   display: none;
+// }
+//
+// .navbar-menu.start svg.pencil{
+//   path:nth-child(1){
+//     display: block;
+//   }
+// }
+
+// .navbar-menu.start svg.unlock{
+//   path:nth-child(2){
+//     display: none;
+//   }
+// }
+//
+// .navbar-menu.start svg.lock{
+//   path:nth-child(1){
+//     display: block;
+//   }
+// }
+
+.navbar-menu.start .icons .plus,
+.navbar-menu.start .icons .lock,
+.navbar-menu.start .icons .crossCreate,
+.navbar-menu.start .icons .crossEdit{
   display: none;
 }
 
-.navbar-menu.start svg.pencil{
-  path:nth-child(1){
-    display: block;
-  }
+.navbar-menu.start .icons .plus.is-active,
+.navbar-menu.start .icons .lock.is-active,
+.navbar-menu.start .icons .crossCreate.is-active,
+.navbar-menu.start .icons .crossEdit.is-active{
+  display: block;
 }
 
-.navbar-menu.start svg.lock{
-  path:nth-child(2){
-    display: none;
-  }
-}
 
-.navbar-menu.start a.is-active svg.lock{
-  path:nth-child(2){
-    display: block;
-    transition-duration: 0.3s;
-    fill: $primary;
-  }
-}
+// .navbar-menu.start a.is-active svg.unlock{
+//   path:nth-child(2){
+//     display: block;
+//     transition-duration: 0.3s;
+//     fill: $primary;
+//   }
+// }
+
 
 button{
   background: transparent;
@@ -211,5 +237,9 @@ section{
     background-color: $white;
     height: 100%;
     padding-top: 2em;
+    width: 100%;
+  }
+  .section-contaier-center{
+    min-width: 250px;
   }
 }

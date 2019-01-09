@@ -13,10 +13,12 @@ export class View{
 
   activate(params){
     this.error = '';
-    // console.log(params);
     this.relatePost = params;
     this.postService.find(params.slug).then(data => {
       this.post = data.post;
+      console.log(params.slug);
+
+      this.ea.publish('pageParams', params)
     }).catch(error => {
       this.ea.publish('toast', {
         type: 'error',

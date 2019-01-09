@@ -13,10 +13,13 @@ export class Shell{
   constructor(EventAggregator, AuthService, I18N){
     this.authService = AuthService;
     this.ea = EventAggregator;
+    this.i18n = I18N;
+
     this.isSelected = false;
     this.homepage = false;
-    this.createPost = true;
-    this.i18n = I18N;
+    this.iconCross = false;
+    this.iconPlus = true;
+    this.iconLock = false;
   }
 
   configureRouter(config, router) {
@@ -50,6 +53,21 @@ export class Shell{
       toastr[toast.type](toast.message);
     });
 
+    this.subscribeEditParams = this.ea.subscribe('pageParams', params => {
+      console.log('pageParams', params);
+      this.iconEditPost.bind(this)
+    });
+  }
+
+  iconEditPost(){
+    this.router.navigateToRoute('post-edit', params)
+  }
+
+  iconCreatePost(){
+    this.router.navigateToRoute('create-post');
+    if(this.router.currentInstruction.config.name === 'create-post'){
+      this.router.navigateToRoute('home');
+    }
   }
 
   navigationSuccess(event) {
@@ -92,24 +110,14 @@ export class Shell{
     })
   }
 
+  setLocale(locale){
+    this.i18n.setLocale(locale);
+  }
+
   detached() {
       this.subscriptionNavigationSuccess.dispose();
       this.subscriberBackToMenu.dispose();
       this.subscriptionUser.dispose();
       this.subscribToastr.dispose();
-  }
-
-
-  svgToggle(){
-    this.router.navigateToRoute('create-post');
-    this.createPost = false;
-    if(this.router.currentInstruction.config.name === 'create-post'){
-      this.router.navigateToRoute('home');
-      this.createPost = true;
-    }
-  }
-
-  setLocale(locale){
-    this.i18n.setLocale(locale);
   }
 }

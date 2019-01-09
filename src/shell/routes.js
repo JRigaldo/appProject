@@ -21,7 +21,6 @@ export default [
     name: 'post-edit',
     moduleId: 'posts/edit',
     title: 'Edit Post',
-    auth: true
   },
   {
     route: 'tag/:tag',

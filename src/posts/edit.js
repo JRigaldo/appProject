@@ -21,6 +21,8 @@ export class Edit{
       // }
 
       this.post = data.post;
+      let params = this.post
+      this.ea.publish('params', params);
     }).catch(error => {
       this.ea.publish('toast', {
         type: 'error',
