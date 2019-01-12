@@ -1,4 +1,5 @@
 import routes from './routes';
+import {CssAnimator} from 'aurelia-animator-css';
 import {inject} from 'aurelia-framework';
 import {Redirect} from 'aurelia-router';
 import { EventAggregator } from 'aurelia-event-aggregator';
@@ -7,13 +8,15 @@ import {AuthService} from '../common/services/auth-service';
 import {AuthorizeStep} from '../pipeline-steps/authorize-step';
 import * as toastr from 'toastr';
 
-@inject(EventAggregator, AuthService, I18N)
+@inject(EventAggregator, AuthService, I18N, CssAnimator, Element)
 export class Shell{
 
-  constructor(EventAggregator, AuthService, I18N){
+  constructor(EventAggregator, AuthService, I18N, CssAnimator, Element){
     this.authService = AuthService;
     this.ea = EventAggregator;
     this.i18n = I18N;
+    this.animator = CssAnimator;
+    this.element = Element;
 
     this.isSelected = false;
     this.homepage = false;
@@ -56,6 +59,32 @@ export class Shell{
     this.subscribeEditParams = this.ea.subscribe('pageParams', params => {
       console.log('pageParams', params);
       this.iconEditPost.bind(this);
+    });
+
+
+
+    this.ea.subscribe('router:navigation:processing', event => {
+      var myElement = this.element.querySelector('.animated');
+      this.animator.animate(myElement, 'myAnimation');
+
+      // var myElement = this.element.querySelector('.myElement');
+      // this.animator.animate(myElement, 'myAnimation');
+
+      // let element = document.querySelector('.animated');
+      // element.classList.add('fadeOutLeftBig');
+    });
+  }
+
+  // animateElement() {
+  //     var myElement = this.element.querySelector('.myElement');
+  //     this.animator.animate(myElement, 'myAnimation');
+  //  }
+
+  animation(){
+    console.log('animation clicked');
+    this.ea.subscribe('router:navigation:processing', event => {
+      let element = document.querySelector('.animated');
+      element.classList.add('fadeIn');
     });
   }
 
@@ -119,6 +148,8 @@ export class Shell{
       this.subscriberBackToMenu.dispose();
       this.subscriptionUser.dispose();
       this.subscribToastr.dispose();
+      this.subscribeNavigation.dispose();
+      this.subscribeEditParams.dispose();
   }
 
   goBack(){

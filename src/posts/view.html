@@ -4,7 +4,7 @@
 
   <a route-href="route: post-edit; params.bind: {slug: post.slug}" if.bind="authService.currentUser === post.author">Edit post</a>
 
-  <section class="view" if.bind="!error">
+  <section class="view animated" if.bind="!error">
     <!-- Description -->
     <article>
       <h3>${post.author}</h3>
