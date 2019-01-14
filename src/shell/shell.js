@@ -61,30 +61,9 @@ export class Shell{
       this.iconEditPost.bind(this);
     });
 
-
-
-    this.ea.subscribe('router:navigation:processing', event => {
-      var myElement = this.element.querySelector('.animated');
-      this.animator.animate(myElement, 'myAnimation');
-
-      // var myElement = this.element.querySelector('.myElement');
-      // this.animator.animate(myElement, 'myAnimation');
-
-      // let element = document.querySelector('.animated');
-      // element.classList.add('fadeOutLeftBig');
-    });
-  }
-
-  // animateElement() {
-  //     var myElement = this.element.querySelector('.myElement');
-  //     this.animator.animate(myElement, 'myAnimation');
-  //  }
-
-  animation(){
-    console.log('animation clicked');
-    this.ea.subscribe('router:navigation:processing', event => {
-      let element = document.querySelector('.animated');
-      element.classList.add('fadeIn');
+    this.subscribeAnimationFadeInRigth = this.ea.subscribe('router:navigation:processing', event => {
+      let myElement = this.element.querySelector('.animated');
+      this.animator.animate(myElement, 'myAnimationRight');
     });
   }
 
@@ -143,6 +122,16 @@ export class Shell{
     this.i18n.setLocale(locale);
   }
 
+  goBack(){
+    let myElement = this.element.querySelector('.animated');
+    this.animator.animate(myElement, 'myAnimationLeft');
+    history.back();
+  }
+
+  goForward() {
+    history.forward();
+  }
+
   detached() {
       this.subscriptionNavigationSuccess.dispose();
       this.subscriberBackToMenu.dispose();
@@ -150,14 +139,6 @@ export class Shell{
       this.subscribToastr.dispose();
       this.subscribeNavigation.dispose();
       this.subscribeEditParams.dispose();
-  }
-
-  goBack(){
-    console.log('back');
-    history.back();
-  }
-
-  goForward() {
-    history.forward();
+      this.subscribeAnimationFadeInRigth.dispose();
   }
 }
