@@ -23,6 +23,7 @@ export class Shell{
     this.iconCross = false;
     this.iconPlus = true;
     this.iconLock = false;
+    this.showNavBack = false;
   }
 
   configureRouter(config, router) {
@@ -47,11 +48,6 @@ export class Shell{
        this.isSelected = true;
     });
 
-    // ENLEVE LE LI 'HOME' SI LE ROUTER EST HOME AU REFRESH
-    if (this.router.currentInstruction.config.name === 'home') {
-      this.homepage = true;
-    }
-
     this.subscribToastr = this.ea.subscribe('toast', toast => {
       toastr[toast.type](toast.message);
     });
@@ -65,6 +61,12 @@ export class Shell{
       let myElement = this.element.querySelector('.animated');
       this.animator.animate(myElement, 'myAnimationRight');
     });
+
+    // ENLEVE LE LI 'HOME' SI LE ROUTER EST HOME AU REFRESH
+    if (this.router.currentInstruction.config.name === 'home') {
+      this.homepage = true;
+    }
+
   }
 
   iconEditPost(){
@@ -85,8 +87,12 @@ export class Shell{
     // ENLEVE : DISPLAY NONE 'HOME' EN TITRE SI HOME EST CLICK
     if(event.instruction.config.name === 'home'){
       this.homepage = true;
+      this.showNavBack = false;
+    }else if(event.instruction.config.name === 'create-post' || event.instruction.config.name === 'register'){
+      this.showNavBack = false;
     }else{
       this.homepage = false;
+      this.showNavBack = true;
     }
   }
 
@@ -126,10 +132,6 @@ export class Shell{
     let myElement = this.element.querySelector('.animated');
     this.animator.animate(myElement, 'myAnimationLeft');
     history.back();
-  }
-
-  goForward() {
-    history.forward();
   }
 
   detached() {

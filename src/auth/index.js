@@ -1,4 +1,5 @@
 import routes from './routes';
+
 export class Index{
 
   configureRouter(config, router) {
