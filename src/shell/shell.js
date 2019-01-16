@@ -24,6 +24,7 @@ export class Shell{
     this.iconPlus = true;
     this.iconLock = false;
     this.showNavBack = false;
+    this.menuActive = false;
   }
 
   configureRouter(config, router) {
@@ -83,13 +84,15 @@ export class Shell{
   navigationSuccess(event) {
     let instruction = event.instruction;
     this.isSelected = false;
-
     // ENLEVE : DISPLAY NONE 'HOME' EN TITRE SI HOME EST CLICK
     if(event.instruction.config.name === 'home'){
       this.homepage = true;
       this.showNavBack = false;
+      this.menuActive = false;
     }else if(event.instruction.config.name === 'create-post' || event.instruction.config.name === 'register'){
       this.showNavBack = false;
+    }else if (event.currentInstruction.config.name === 'register') {
+      this.menuActive = true;
     }else{
       this.homepage = false;
       this.showNavBack = true;
@@ -97,8 +100,12 @@ export class Shell{
   }
 
   toggleMenu() {
+    this.menuActive = !this.menuActive;
     if(this.currentUser === null){
       this.router.navigateToRoute('register');
+      if (this.router.currentInstruction.config.name === 'register') {
+        this.router.navigateToRoute('home');
+      }
     }else{
       this.isSelected = !this.isSelected;
     }
@@ -106,9 +113,9 @@ export class Shell{
 
   logout(){
     this.authService.logout().then(data => {
-      // console.log(data.success);
       this.isSelected = false;
       this.createPost = true;
+      this.menuActive = false;
       this.ea.publish('user', null);
       this.ea.publish('toast', {
         type: 'success',
@@ -120,7 +127,6 @@ export class Shell{
         type: 'error',
         message: error.message
       });
-      // this.error = error.message;
     })
   }
 

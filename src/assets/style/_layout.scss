@@ -93,7 +93,7 @@ header .navbar-menu{
   padding: 0;
   box-shadow: none;
 
-  .active svg.icons{
+  .is-active svg.icons path{
     fill: $primary;
   }
 
