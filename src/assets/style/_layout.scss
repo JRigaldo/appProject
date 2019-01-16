@@ -152,17 +152,11 @@ header .navbar-menu{
 //   }
 // }
 
-.navbar-menu.start .icons .plus,
-.navbar-menu.start .icons .lock,
-.navbar-menu.start .icons .crossCreate,
-.navbar-menu.start .icons .crossEdit{
+.navbar-menu.start .icons path{
   display: none;
 }
 
-.navbar-menu.start .icons .plus.is-active,
-.navbar-menu.start .icons .lock.is-active,
-.navbar-menu.start .icons .crossCreate.is-active,
-.navbar-menu.start .icons .crossEdit.is-active{
+.navbar-menu.start .icons path.is-active{
   display: block;
 }
 

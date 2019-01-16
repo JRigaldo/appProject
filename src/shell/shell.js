@@ -5,14 +5,16 @@ import {Redirect} from 'aurelia-router';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import {I18N} from 'aurelia-i18n';
 import {AuthService} from '../common/services/auth-service';
+import {PostService} from '../common/services/post-service';
 import {AuthorizeStep} from '../pipeline-steps/authorize-step';
 import * as toastr from 'toastr';
 
-@inject(EventAggregator, AuthService, I18N, CssAnimator, Element)
+@inject(EventAggregator, AuthService, PostService, I18N, CssAnimator, Element)
 export class Shell{
 
-  constructor(EventAggregator, AuthService, I18N, CssAnimator, Element){
+  constructor(EventAggregator, AuthService, PostService, I18N, CssAnimator, Element){
     this.authService = AuthService;
+    this.postService = PostService;
     this.ea = EventAggregator;
     this.i18n = I18N;
     this.animator = CssAnimator;
@@ -21,9 +23,10 @@ export class Shell{
     this.isSelected = false;
     this.homepage = false;
     this.iconCross = false;
-    this.iconPlus = true;
+    this.iconPlus = false;
     this.iconLock = false;
-    this.showNavBack = false;
+    this.iconBack = false;
+    this.iconEdit = false;
     this.menuActive = false;
   }
 
@@ -53,31 +56,37 @@ export class Shell{
       toastr[toast.type](toast.message);
     });
 
-    this.subscribeEditParams = this.ea.subscribe('pageParams', params => {
-      console.log('pageParams', params);
-      this.iconEditPost.bind(this);
-    });
-
     this.subscribeAnimationFadeInRigth = this.ea.subscribe('router:navigation:processing', event => {
       let myElement = this.element.querySelector('.animated');
       this.animator.animate(myElement, 'myAnimationRight');
     });
 
-    // ENLEVE LE LI 'HOME' SI LE ROUTER EST HOME AU REFRESH
+    this.subscribeEditParams = this.ea.subscribe('pageParams', params => {
+      console.log('pageParams', params);
+      // this.editPost(params)
+      return params
+    });
+
+    console.log('subscribeEditParams', this.subscribeEditParams);
+
+    // AU REFRESH
     if (this.router.currentInstruction.config.name === 'home') {
+      // ENLEVE LE LI 'HOME' SI LE ROUTER EST HOME AU REFRESH
       this.homepage = true;
-    }
-
-  }
-
-  iconEditPost(){
-    this.router.navigateToRoute('post-edit', params)
-  }
-
-  iconCreatePost(){
-    this.router.navigateToRoute('create-post');
-    if(this.router.currentInstruction.config.name === 'create-post'){
-      this.router.navigateToRoute('home');
+      this.iconBack = false;
+      this.iconEdit = false;
+      if (this.currentUser === null) {
+        this.iconPlus = false;
+      }else{
+        this.iconPlus = true;
+      }
+    }else if (this.router.currentInstruction.config.name === 'post-view') {
+      this.iconBack = true;
+      this.iconEdit = true;
+    }else if (this.router.currentInstruction.config.name === 'post-edit') {
+      this.iconEdit = true;
+    }else{
+      this.iconPlus = false;
     }
   }
 
@@ -87,28 +96,67 @@ export class Shell{
     // ENLEVE : DISPLAY NONE 'HOME' EN TITRE SI HOME EST CLICK
     if(event.instruction.config.name === 'home'){
       this.homepage = true;
-      this.showNavBack = false;
+      this.iconBack = false;
       this.menuActive = false;
+      this.iconPlus = true;
+      this.iconEdit = false;
     }else if(event.instruction.config.name === 'create-post' || event.instruction.config.name === 'register'){
-      this.showNavBack = false;
-    }else if (event.currentInstruction.config.name === 'register') {
+      this.iconBack = false;
+    }else if (event.instruction.config.name === 'register') {
       this.menuActive = true;
+      this.iconPlus = false;
+    }else if (event.instruction.config.name === 'post-view') {
+      this.iconBack = true;
+      this.iconPlus = false;
+      this.iconEdit = true;
+    }else if (event.instruction.config.name === 'post-edit') {
+      this.iconEdit = true;
     }else{
       this.homepage = false;
-      this.showNavBack = true;
+      this.iconBack = true;
+      this.iconPlus = false;
+      this.iconEdit = false;
+    }
+  }
+
+  iconCreatePost(){
+    if(this.router.currentInstruction.config.name === 'create-post'){
+      this.router.navigateToRoute('home');
+    }
+    this.router.navigateToRoute('create-post');
+  }
+
+  goBack(){
+    let myElement = this.element.querySelector('.animated');
+    this.animator.animate(myElement, 'myAnimationLeft');
+    history.back();
+  }
+
+  editPost(params){
+
+    console.log('editpostclick', this.params);
+
+    let storeParams = params;
+    console.log('storeParams', storeParams);
+
+    if (this.onclick) {
+      this.router.navigateToRoute('post-edit', params)
+    }
+    if (this.router.currentInstruction.config.name === 'post-edit') {
+      history.back();
     }
   }
 
   toggleMenu() {
-    this.menuActive = !this.menuActive;
     if(this.currentUser === null){
       this.router.navigateToRoute('register');
       if (this.router.currentInstruction.config.name === 'register') {
-        this.router.navigateToRoute('home');
+        history.back();
       }
     }else{
       this.isSelected = !this.isSelected;
     }
+    this.menuActive = !this.menuActive;
 	}
 
   logout(){
@@ -132,12 +180,6 @@ export class Shell{
 
   setLocale(locale){
     this.i18n.setLocale(locale);
-  }
-
-  goBack(){
-    let myElement = this.element.querySelector('.animated');
-    this.animator.animate(myElement, 'myAnimationLeft');
-    history.back();
   }
 
   detached() {
