@@ -16,9 +16,11 @@ export class View{
     this.relatePost = params;
     this.postService.find(params.slug).then(data => {
       this.post = data.post;
-      console.log(params.slug);
+      let postAuhtorParams = this.post;
+      // console.log(params.slug);
 
       this.ea.publish('pageParams', params)
+      this.ea.publish('postAuhtorParams', postAuhtorParams)
     }).catch(error => {
       this.ea.publish('toast', {
         type: 'error',

@@ -28,6 +28,9 @@ export class Shell{
     this.iconBack = false;
     this.iconEdit = false;
     this.menuActive = false;
+
+    this.storeParams = null;
+    this.postAuhtorParams = null;
   }
 
   configureRouter(config, router) {
@@ -62,12 +65,13 @@ export class Shell{
     });
 
     this.subscribeEditParams = this.ea.subscribe('pageParams', params => {
-      console.log('pageParams', params);
-      // this.editPost(params)
-      return params
+      this.storeParams = params;
     });
 
-    console.log('subscribeEditParams', this.subscribeEditParams);
+    this.subscribePostAuhtorParams = this.ea.subscribe('postAuhtorParams', authorParams => {
+      this.postAuhtorParams = authorParams;
+      console.log('postAuhtorParams', this.postAuhtorParams);
+    });
 
     // AU REFRESH
     if (this.router.currentInstruction.config.name === 'home') {
@@ -132,16 +136,9 @@ export class Shell{
     history.back();
   }
 
-  editPost(params){
-
-    console.log('editpostclick', this.params);
-
-    let storeParams = params;
-    console.log('storeParams', storeParams);
-
-    if (this.onclick) {
-      this.router.navigateToRoute('post-edit', params)
-    }
+  editPostClick(){
+    console.log('storeParams', this.storeParams);
+    this.router.navigateToRoute('post-edit', this.storeParams)
     if (this.router.currentInstruction.config.name === 'post-edit') {
       history.back();
     }
