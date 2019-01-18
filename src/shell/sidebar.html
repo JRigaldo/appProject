@@ -1,10 +1,11 @@
 <template>
   <aside class="main-navigation">
-    <div>
-      <button click.delegate="setLocale('en')">English</button>
-      <button click.delegate="setLocale('fr')">French</button>
-    </div>
     <nav>
+        <ul>
+          <li class="is-active"><a>Profil</a></li>
+          <li><a>Adresse</a></li>
+          <li><a>Account</a></li>
+        </ul>
         <ul ref="sidebarMenu">
           <!-- repeat.for="nav of router.navigation"-->
          <li class="${router.currentInstruction.config.name === 'home' ? 'active' : ''} ${homepage ? 'link' : ''}">

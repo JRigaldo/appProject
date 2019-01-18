@@ -4,23 +4,19 @@
 }
 
 .has-sidebar .router-views .menu-is-selected{
-  position: relative;
-  min-height: 100%;
-  &:before{
-    content: '';
-    display: block;
-    background-color: $background-navbar-menu;
-    opacity: 0.8;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  content: '';
+  display: block;
+  background-color: $background-navbar-menu;
+  opacity: 0.8;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 
 
-    position: absolute;
-    transform: transition(0.3s);
-    z-index: 10;
-  }
+  position: absolute;
+  transform: transition(0.3s);
+  z-index: 10;
 }
 
 /**

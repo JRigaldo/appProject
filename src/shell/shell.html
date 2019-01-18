@@ -6,9 +6,8 @@
     <compose view-model="./sidebar"></compose>
     <!-- <h2>${currentUser || 'Guest'}</h2> -->
     <div class="router-views">
-      <div class="menu-is-selected">
-        <router-view></router-view>
-      </div>
+      <div class="menu-is-selected" click.delegate="cacheBody()"></div>
+      <router-view></router-view>
     </div>
   </div>
 </template>
