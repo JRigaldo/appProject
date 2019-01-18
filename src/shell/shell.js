@@ -123,11 +123,13 @@ export class Shell{
     }
   }
 
-  iconCreatePost(){
+  createPostClick(){
     if(this.router.currentInstruction.config.name === 'create-post'){
       this.router.navigateToRoute('home');
+    }else{
+      this.router.navigateToRoute('create-post');
     }
-    this.router.navigateToRoute('create-post');
+
   }
 
   goBack(){
