@@ -3,38 +3,38 @@ section.view{
   height: 100%;
   article{
     line-height: 1.2em;
-    padding: 5px;
-    h3{
+    padding: 0 5px;
+    h2{
       display: inline;
       font-weight: 600;
       font-size: 1.05em;
       margin-right: 15px;
     }
+    h3{
+      display: inline;
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: $primary;
+      margin-left: 5px;
+    }
     p{
       display: inline;
-      font-size: 0.9em;
+      font-size: 1rem;
+      color: $grey-dark;
     }
   }
   .relate-tags{
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
     overflow: hidden;
-    margin: 20px 0;
     .date{
-      display: inline-block;
-      font-size: 0.8em;
-      padding-left: 5px;
-      color: $grey;
-      min-width: 150px;
+      position: relative;
+      top: 6px;
     }
-    .main-tag{
-      display: inline-block;
-      margin: 0;
+
+    .label__text{
+      padding: 0 5px;
     }
   }
+
 }
 
 section.create{

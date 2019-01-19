@@ -27,7 +27,7 @@ export class Carousel{
             }
           }
         ]
-      });
+      }, 100);
 
       // $(document).ready(function() {
       // $(window).on('resize', '', {'width': $('.router-views').width()}, this.onResizeWatch)});

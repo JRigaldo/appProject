@@ -45,6 +45,7 @@ export class Edit{
         type: 'error',
         message: error.message
       });
+      console.log('error edit', data.error);
     });
   }
 }
