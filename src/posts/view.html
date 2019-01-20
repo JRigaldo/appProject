@@ -11,21 +11,16 @@
     <article>
       <h2>${post.title}</h2>
       <p>${post.body}</p>
-      <h3>&#64;${post.author}</h3>
+
     </article>
     <!-- Tags -->
-    <div class="relate-tags">
+    <div class="tags-container">
       <span class="date">${post.createdAt | dateFormat }</span>
-      <div class="main-tag">
-        <div class="tags" ref="tagList">
-          <a route-href="route: tag-view; params.bind: {tag: tag}" repeat.for="tag of post.tags">
-            <span class="label__text">${tag}</span>
-          </a>
-        </div>
-      </div>
+      <h3>&#64;${post.author}</h3>
+      <a route-href="route: tag-view; params.bind: {tag: tag}" repeat.for="tag of post.tags">
+        <button class="label__text">${tag}</button>
+      </a>
     </div>
-
-    <masonry-grid posts.bind="posts"></masonry-grid>
   </section>
 
 

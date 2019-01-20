@@ -2,7 +2,10 @@
   <div class="main-grid">
     <div class="grid">
       <a route-href="route: post-view; params.bind: {slug: post.slug}" class="grid-item" repeat.for="post of posts">
-        ${post.title}
+        <figure>
+          <img src="https://picsum.photos/625/400/?random" alt="">
+          <figcaption>${post.title}</figcaption>
+        </figure>
       </a>
     </div>
   </div>

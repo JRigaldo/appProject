@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import ImagesLoaded from 'imagesloaded';
+import jQueryBridget from 'jquery-bridget';
 import Masonry from 'masonry-layout';
 import {bindable} from 'aurelia-framework';
 
@@ -8,22 +10,38 @@ export class MasonryGrid{
   attached(){
     setTimeout(() => {
 		    this.masonry();
-  	}, 1000);
+  	}, 100);
+
   }
 
   masonry() {
-    let grid = document.querySelector('.grid')
-    let msnry = new Masonry(grid, {
-      itemSelector: '.grid-item',
-      isFitWidth: true,
-      gutter: 2,
-      columnWidth: 180
-    });
-    msnry.once('layoutComplete', () => {
-      grid.classList.add('load')
-    });
+    jQueryBridget( 'masonry', Masonry, $ );
+    jQueryBridget( 'imagesLoaded', ImagesLoaded, $ );
 
-    msnry.layout()
+    let $grid = $('.grid');
+    $grid.imagesLoaded(function () {
+        $grid.masonry({
+            itemSelector: '.grid-item',
+            // columnWidth: '.grid__sizer',
+            percentPosition: true
+        });
+     });
+
+    // let grid = document.querySelector('.grid')
+    // let msnry = new Masonry(grid, {
+    //   itemSelector: '.grid-item',
+    //   // isFitWidth: true,
+    //   // gutter: 2,
+    //   // columnWidth: '.grid-item'
+    //   percentPosition: true
+    // });
+
+    // msnry.once('layoutComplete', () => {
+    //   grid.classList.add('load')
+    //
+    // });
+
+    // msnry.layout()
   }
 }
 // // external js: masonry.pkgd.js

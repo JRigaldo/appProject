@@ -4,7 +4,9 @@
     <div class="relate-tags">
       <div class="main-tag">
         <div class="tags" ref="tagList">
-          <a route-href="route: tag-view; params.bind: {tag : tag}" repeat.for="tag of tags"><button class="tag is-small">${tag}</button></a>
+          <a route-href="route: tag-view; params.bind: {tag : tag}" repeat.for="tag of tags">
+            <button class="label__text">${tag}</button>
+          </a>
         </div>
       </div>
     </div>
